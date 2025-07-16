@@ -3,20 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="EntaAuto - выкуп и подбор автомобилей.">
-    <title>EntaAuto - Выкуп авто</title>
+    <meta name="description" content="ENTA AUTO - безопасный автоподбор. Помогаем найти идеальный автомобиль без рисков.">
+    <title>ENTA AUTO - Автоподбор</title>
     <style>
         body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; color: #333; }
         
         /* Хедер с тёмным фоном */
-        header { background-color: #1a1a1a; /* Тёмный фон */ color: white; padding: 20px; display: flex; justify-content: space-between; align-items: center; position: relative; }
+        header { background-color: #1a1a1a; color: white; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; position: relative; }
+        .header-top { width: 100%; display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
         .logo { max-width: 150px; height: auto; }
         .contacts { text-align: right; }
         .phone { display: block; font-size: 1.2em; margin-bottom: 5px; color: #fff; text-decoration: none; }
-        .button { background-color: #ff6600; /* Яркий оранжевый */ color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 1em; margin-top: 10px; display: inline-block; }
+        .button { background-color: #ff6600; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 1em; margin-top: 10px; display: inline-block; }
         .button:hover { background-color: #e65c00; }
         
-        /* Модальное окно */
+        /* Главный элемент: Инфографика шагов подбора */
+        .main-element { text-align: center; max-width: 800px; }
+        .main-element h2 { font-size: 2em; margin-bottom: 20px; }
+        .steps { display: flex; justify-content: space-around; flex-wrap: wrap; }
+        .step { background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin: 10px; width: 180px; text-align: center; }
+        .step-number { font-size: 2.5em; color: #ff6600; }
+        .step-text { font-size: 1em; }
+        
+        /* Модальное окно (адаптировано под автоподбор) */
         .modal { display: none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.5); }
         .modal-content { background-color: #fff; margin: 15% auto; padding: 20px; border-radius: 10px; width: 80%; max-width: 400px; text-align: center; }
         .close { color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
@@ -24,22 +33,50 @@
         .modal h2 { margin: 0 0 10px; font-size: 1.5em; }
         .modal p { margin: 0 0 20px; font-size: 1em; color: #666; }
         .modal input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
-        .modal input::placeholder { color: rgba(0,0,0,0.5); /* Полупрозрачный плейсхолдер */ }
-        .modal .submit-button { background-color: #28a745; /* Яркая зелёная кнопка */ color: white; padding: 12px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-size: 1.1em; }
+        .modal input::placeholder { color: rgba(0,0,0,0.5); }
+        .modal .submit-button { background-color: #28a745; color: white; padding: 12px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-size: 1.1em; }
         .modal .submit-button:hover { background-color: #218838; }
+        
+        @media (max-width: 768px) { .header-top { flex-direction: column; text-align: center; } .contacts { margin-top: 20px; } .step { width: 100%; } }
     </style>
 </head>
 <body>
     <!-- Первый блок: Хедер с тёмным фоном -->
     <header>
-        <!-- Логотип в левом верхнем углу -->
-        <img src="autoberry13.png" alt="EntaAuto Логотип" class="logo"> <!-- Замените src на имя вашего файла после загрузки -->
+        <div class="header-top">
+            <!-- Логотип в левом верхнем углу -->
+            <img src="logo.png" alt="ENTA AUTO Логотип" class="logo"> <!-- Скинь файл и замени src -->
+            
+            <!-- Телефоны и кнопка в правом верхнем углу -->
+            <div class="contacts">
+                <a href="tel:+79934618990" class="phone">+7(993)461-89-90</a>
+                <a href="tel:+79171039557" class="phone">+7(917)103-95-57</a>
+                <button class="button" onclick="openModal()">Заказать подбор</button>
+            </div>
+        </div>
         
-        <!-- Телефоны и кнопка в правом верхнем углу -->
-        <div class="contacts">
-            <a href="tel:+79934618990" class="phone">+7(993)461-89-90</a>
-            <a href="tel:+79171039557" class="phone">+7(917)103-95-57</a>
-            <button class="button" onclick="openModal()">Заказать подбор</button>
+        <!-- Главный элемент: Инфографика "4 шага безопасного подбора" -->
+        <div class="main-element">
+            <h2>Безопасный автоподбор за 4 шага</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-text">Оставьте заявку</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-text">Консультация и пожелания</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-text">Осмотр и проверка авто</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-text">Сделка и ключи ваши!</div>
+                </div>
+            </div>
+            <p style="margin-top: 20px; font-size: 1.2em;">Мы проверим всё: от истории до техсостояния. Доверьтесь экспертам!</p>
         </div>
     </header>
     
@@ -48,8 +85,8 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <h2>Оставьте заявку</h2>
-            <p>Мы свяжемся и проконсультируем вас</p>
-            <form> <!-- Позже добавим action для отправки, например, Formspree -->
+            <p>Мы свяжемся и поможем подобрать идеальное авто</p>
+            <form> <!-- Добавим action позже для отправки -->
                 <input type="text" placeholder="Ваше имя" required>
                 <input type="tel" placeholder="Введите телефон" required>
                 <button type="submit" class="submit-button">Оставить заявку</button>
@@ -59,31 +96,13 @@
     
     <!-- JavaScript для модального окна -->
     <script>
-        function openModal() {
-            document.getElementById('myModal').style.display = 'block';
-        }
-        function closeModal() {
-            document.getElementById('myModal').style.display = 'none';
-        }
-        // Закрытие по клику вне окна
-        window.onclick = function(event) {
-            if (event.target == document.getElementById('myModal')) {
-                closeModal();
-            }
-        }
+        function openModal() { document.getElementById('myModal').style.display = 'block'; }
+        function closeModal() { document.getElementById('myModal').style.display = 'none'; }
+        window.onclick = function(event) { if (event.target == document.getElementById('myModal')) closeModal(); }
     </script>
     
-    <!-- Здесь будут следующие блоки -->
-    <main>
-        <!-- Пока placeholder для остального контента -->
-        <section style="padding: 40px; text-align: center;">
-            <h1>Добро пожаловать на EntaAuto.ru</h1>
-            <p>Мы занимаемся выкупом и подбором автомобилей.</p>
-        </section>
-    </main>
-    
-    <footer style="text-align: center; padding: 20px; background: #333; color: white;">
-        <p>&copy; 2023 EntaAuto.ru</p>
-    </footer>
+    <!-- Placeholder для остальных блоков -->
+    <main><section style="padding: 40px; text-align: center;"><h1>Добро пожаловать в ENTA AUTO</h1></section></main>
+    <footer style="text-align: center; padding: 20px; background: #333; color: white;"><p>&copy; 2023 entaauto.ru</p></footer>
 </body>
 </html>
