@@ -21,7 +21,8 @@
         .main-element { text-align: center; max-width: 800px; }
         .main-element h2 { font-size: 2em; margin-bottom: 20px; }
         .steps { display: flex; justify-content: space-around; flex-wrap: wrap; }
-        .step { background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin: 10px; width: 180px; text-align: center; }
+        .step { background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin: 10px; width: 180px; text-align: center; transition: transform 0.3s; }
+        .step:hover { transform: scale(1.05); } /* Лёгкая анимация */
         .step-number { font-size: 2.5em; color: #ff6600; }
         .step-text { font-size: 1em; }
         
@@ -45,7 +46,7 @@
     <header>
         <div class="header-top">
             <!-- Логотип в левом верхнем углу -->
-            <img src="‎img/autoberry13.png" alt="ENTA AUTO Логотип" class="logo"> <!-- Скинь файл и замени src -->
+            <img src="img/autoberry13.png" alt="ENTA AUTO Логотип" class="logo"> <!-- Исправленный src; добавь файл в репозиторий -->
             
             <!-- Телефоны и кнопка в правом верхнем углу -->
             <div class="contacts">
@@ -86,23 +87,31 @@
             <span class="close" onclick="closeModal()">&times;</span>
             <h2>Оставьте заявку</h2>
             <p>Мы свяжемся и поможем подобрать идеальное авто</p>
-            <form> <!-- Добавим action позже для отправки -->
-                <input type="text" placeholder="Ваше имя" required>
-                <input type="tel" placeholder="Введите телефон" required>
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST"> <!-- Замени на свой Formspree URL -->
+                <input type="text" name="name" placeholder="Ваше имя" required>
+                <input type="tel" name="phone" placeholder="Введите телефон" required>
                 <button type="submit" class="submit-button">Оставить заявку</button>
             </form>
         </div>
     </div>
     
-    <!-- JavaScript для модального окна -->
+    <!-- JavaScript для модального окна и динамического года -->
     <script>
         function openModal() { document.getElementById('myModal').style.display = 'block'; }
         function closeModal() { document.getElementById('myModal').style.display = 'none'; }
         window.onclick = function(event) { if (event.target == document.getElementById('myModal')) closeModal(); }
+        
+        // Динамический год в футере
+        document.querySelector('footer p').innerHTML = '&copy; ' + new Date().getFullYear() + ' entaauto.ru';
     </script>
     
-    <!-- Placeholder для остальных блоков -->
-    <main><section style="padding: 40px; text-align: center;"><h1>Добро пожаловать в ENTA AUTO</h1></section></main>
+    <!-- Placeholder для остальных блоков (расширь здесь) -->
+    <main>
+        <section style="padding: 40px; text-align: center;">
+            <h1>Добро пожаловать в ENTA AUTO</h1>
+            <p>Здесь можно добавить описание услуг, отзывы клиентов или галерею авто.</p>
+        </section>
+    </main>
     <footer style="text-align: center; padding: 20px; background: #333; color: white;"><p>&copy; 2023 entaauto.ru</p></footer>
 </body>
 </html>
