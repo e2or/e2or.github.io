@@ -8,8 +8,11 @@
     <style>
         body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; color: #333; }
         
-        /* Хедер с тёмным фоном */
-        header { background-color: #1a1a1a; color: white; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; position: relative; }
+        /* Хедер с адаптированным градиентным фоном (под картинку) */
+        header { 
+            background: linear-gradient(135deg, #1a1a1a 0%, #ff6600 100%); /* Градиент для гармонии с оранжевым в картинке */
+            color: white; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; position: relative; 
+        }
         .header-top { width: 100%; display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
         .logo { max-width: 150px; height: auto; }
         .contacts { text-align: right; }
@@ -17,16 +20,18 @@
         .button { background-color: #ff6600; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 1em; margin-top: 10px; display: inline-block; }
         .button:hover { background-color: #e65c00; }
         
-        /* Новый блок: Абстрактный баннер с ключами и текстом */
-        .abstract-banner { position: relative; width: 100%; max-width: 800px; height: 300px; /* Высота баннера */
-            background: linear-gradient(135deg, #1a1a1a 0%, #ff6600 100%); /* Абстрактный градиент */
-            border-radius: 10px; display: flex; justify-content: center; align-items: center; text-align: center; 
-            overflow: hidden; transition: transform 0.3s; }
-        .abstract-banner:hover { transform: scale(1.02); } /* Лёгкая анимация */
-        .banner-content { color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); }
-        .banner-icon { font-size: 5em; margin-bottom: 10px; } /* Иконка ключей (эмодзи) */
-        .banner-content h2 { font-size: 2em; margin: 0; }
-        .banner-content p { font-size: 1.2em; margin-top: 10px; }
+        /* Блок с картинкой (баннер) */
+        .hero-banner { position: relative; width: 100%; max-width: 800px; overflow: hidden; border-radius: 10px; transition: transform 0.3s; }
+        .hero-banner:hover { transform: scale(1.02); } /* Лёгкая анимация */
+        .hero-banner img { width: 100%; height: auto; display: block; } /* Картинка адаптивная */
+        .banner-overlay { 
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+            text-align: center; color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); /* Для читаемости на фоне */
+            background: rgba(0,0,0,0.3); /* Лёгкий полупрозрачный слой */
+            padding: 20px; border-radius: 5px; 
+        }
+        .banner-overlay h2 { font-size: 2em; margin: 0; }
+        .banner-overlay p { font-size: 1.2em; margin-top: 10px; }
         
         /* Модальное окно (адаптировано под автоподбор) */
         .modal { display: none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.5); }
@@ -40,8 +45,10 @@
         .modal .submit-button { background-color: #28a745; color: white; padding: 12px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-size: 1.1em; }
         .modal .submit-button:hover { background-color: #218838; }
         
-        @media (max-width: 768px) { .header-top { flex-direction: column; text-align: center; } .contacts { margin-top: 20px; } 
-            .abstract-banner { height: 200px; } .banner-icon { font-size: 3em; } .banner-content h2 { font-size: 1.5em; } .banner-content p { font-size: 1em; } }
+        @media (max-width: 768px) { 
+            .header-top { flex-direction: column; text-align: center; } .contacts { margin-top: 20px; } 
+            .banner-overlay h2 { font-size: 1.5em; } .banner-overlay p { font-size: 1em; padding: 10px; }
+        }
     </style>
 </head>
 <body>
@@ -49,7 +56,7 @@
     <header>
         <div class="header-top">
             <!-- Логотип в левом верхнем углу -->
-            <img src="autoberry13.png" alt="ENTA AUTO Логотип" class="logo"> <!-- Исправленный src -->
+            <img src="img/autoberry13.png" alt="ENTA AUTO Логотип" class="logo"> <!-- Исправленный src -->
             
             <!-- Телефоны и кнопка в правом верхнем углу -->
             <div class="contacts">
@@ -59,12 +66,12 @@
             </div>
         </div>
         
-        <!-- Новый блок: Абстрактный баннер с ключами и текстом -->
-        <div class="abstract-banner">
-            <div class="banner-content">
-                <div class="banner-icon">🔑</div> <!-- Абстрактная иконка ключей; замени на <img src="img/keys.svg" alt="Ключи от авто"> для реальной графики -->
-                <h2>Ваш идеальный авто ждёт!</h2>
-                <p>ENTA AUTO — ключи к безопасному подбору без рисков</p>
+        <!-- Блок с новой картинкой (баннер) -->
+        <div class="hero-banner">
+            <img src="https://via.placeholder.com/800x300?text=Handshake+with+Car+Keys" alt="Передача ключей от авто"> <!-- Замени на "img/handshake-keys.png" после загрузки в GitHub -->
+            <div class="banner-overlay">
+                <h2>Сделка без рисков — ключи в ваших руках!</h2>
+                <p>ENTA AUTO: Надёжный автоподбор от экспертов</p>
             </div>
         </div>
     </header>
