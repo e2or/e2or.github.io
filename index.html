@@ -17,14 +17,16 @@
         .button { background-color: #ff6600; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 1em; margin-top: 10px; display: inline-block; }
         .button:hover { background-color: #e65c00; }
         
-        /* Главный элемент: Инфографика шагов подбора */
-        .main-element { text-align: center; max-width: 800px; }
-        .main-element h2 { font-size: 2em; margin-bottom: 20px; }
-        .steps { display: flex; justify-content: space-around; flex-wrap: wrap; }
-        .step { background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin: 10px; width: 180px; text-align: center; transition: transform 0.3s; }
-        .step:hover { transform: scale(1.05); } /* Лёгкая анимация */
-        .step-number { font-size: 2.5em; color: #ff6600; }
-        .step-text { font-size: 1em; }
+        /* Новый блок: Абстрактный баннер с ключами и текстом */
+        .abstract-banner { position: relative; width: 100%; max-width: 800px; height: 300px; /* Высота баннера */
+            background: linear-gradient(135deg, #1a1a1a 0%, #ff6600 100%); /* Абстрактный градиент */
+            border-radius: 10px; display: flex; justify-content: center; align-items: center; text-align: center; 
+            overflow: hidden; transition: transform 0.3s; }
+        .abstract-banner:hover { transform: scale(1.02); } /* Лёгкая анимация */
+        .banner-content { color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); }
+        .banner-icon { font-size: 5em; margin-bottom: 10px; } /* Иконка ключей (эмодзи) */
+        .banner-content h2 { font-size: 2em; margin: 0; }
+        .banner-content p { font-size: 1.2em; margin-top: 10px; }
         
         /* Модальное окно (адаптировано под автоподбор) */
         .modal { display: none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.5); }
@@ -38,7 +40,8 @@
         .modal .submit-button { background-color: #28a745; color: white; padding: 12px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-size: 1.1em; }
         .modal .submit-button:hover { background-color: #218838; }
         
-        @media (max-width: 768px) { .header-top { flex-direction: column; text-align: center; } .contacts { margin-top: 20px; } .step { width: 100%; } }
+        @media (max-width: 768px) { .header-top { flex-direction: column; text-align: center; } .contacts { margin-top: 20px; } 
+            .abstract-banner { height: 200px; } .banner-icon { font-size: 3em; } .banner-content h2 { font-size: 1.5em; } .banner-content p { font-size: 1em; } }
     </style>
 </head>
 <body>
@@ -46,7 +49,7 @@
     <header>
         <div class="header-top">
             <!-- Логотип в левом верхнем углу -->
-            <img src="autoberry13.png" alt="ENTA AUTO Логотип" class="logo"> <!-- Исправленный src; добавь файл в репозиторий -->
+            <img src="autoberry13.png" alt="ENTA AUTO Логотип" class="logo"> <!-- Исправленный src -->
             
             <!-- Телефоны и кнопка в правом верхнем углу -->
             <div class="contacts">
@@ -56,28 +59,13 @@
             </div>
         </div>
         
-        <!-- Главный элемент: Инфографика "4 шага безопасного подбора" -->
-        <div class="main-element">
-            <h2>Безопасный автоподбор за 4 шага</h2>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <div class="step-text">Оставьте заявку</div>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div class="step-text">Консультация и пожелания</div>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div class="step-text">Осмотр и проверка авто</div>
-                </div>
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <div class="step-text">Сделка и ключи ваши!</div>
-                </div>
+        <!-- Новый блок: Абстрактный баннер с ключами и текстом -->
+        <div class="abstract-banner">
+            <div class="banner-content">
+                <div class="banner-icon">🔑</div> <!-- Абстрактная иконка ключей; замени на <img src="img/keys.svg" alt="Ключи от авто"> для реальной графики -->
+                <h2>Ваш идеальный авто ждёт!</h2>
+                <p>ENTA AUTO — ключи к безопасному подбору без рисков</p>
             </div>
-            <p style="margin-top: 20px; font-size: 1.2em;">Мы проверим всё: от истории до техсостояния. Доверьтесь экспертам!</p>
         </div>
     </header>
     
