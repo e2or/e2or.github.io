@@ -3,110 +3,325 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ENTA AUTO - безопасный автоподбор. Помогаем найти идеальный автомобиль без рисков.">
-    <title>ENTA AUTO - Автоподбор</title>
+    <title>ENTA Auto - Надёжный партнёр в поиске вашего авто</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Russo+One&display=swap" rel="stylesheet">
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; color: #333; }
-        
-        /* Хедер с адаптированным градиентным фоном (под картинку) */
-        header { 
-            background: linear-gradient(135deg, #1a1a1a 0%, #ff6600 100%); /* Градиент для гармонии с оранжевым в картинке */
-            color: white; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; position: relative; 
+        /* Основные стили в стиле NFS Underground: темный неоновый уличный тюнинг */
+        body {
+            font-family: 'Russo One', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #000000, #001f3f); /* Темный градиент как ночные улицы */
+            color: #ffffff;
+            overflow-x: hidden;
         }
-        .header-top { width: 100%; display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
-        .logo { max-width: 150px; height: auto; }
-        .contacts { text-align: right; }
-        .phone { display: block; font-size: 1.2em; margin-bottom: 5px; color: #fff; text-decoration: none; }
-        .button { background-color: #ff6600; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 1em; margin-top: 10px; display: inline-block; }
-        .button:hover { background-color: #e65c00; }
-        
-        /* Блок с картинкой (баннер) */
-        .hero-banner { position: relative; width: 100%; max-width: 800px; overflow: hidden; border-radius: 10px; transition: transform 0.3s; }
-        .hero-banner:hover { transform: scale(1.02); } /* Лёгкая анимация */
-        .hero-banner img { width: 100%; height: auto; display: block; } /* Картинка адаптивная */
-        .banner-overlay { 
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
-            text-align: center; color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); /* Для читаемости на фоне */
-            background: rgba(0,0,0,0.3); /* Лёгкий полупрозрачный слой */
-            padding: 20px; border-radius: 5px; 
+
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 0 20px #00ff00; /* Неоновый glow */
+            animation: neonPulse 2s infinite alternate;
         }
-        .banner-overlay h2 { font-size: 2em; margin: 0; }
-        .banner-overlay p { font-size: 1.2em; margin-top: 10px; }
-        
-        /* Модальное окно (адаптировано под автоподбор) */
-        .modal { display: none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.5); }
-        .modal-content { background-color: #fff; margin: 15% auto; padding: 20px; border-radius: 10px; width: 80%; max-width: 400px; text-align: center; }
-        .close { color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
-        .close:hover { color: #000; }
-        .modal h2 { margin: 0 0 10px; font-size: 1.5em; }
-        .modal p { margin: 0 0 20px; font-size: 1em; color: #666; }
-        .modal input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
-        .modal input::placeholder { color: rgba(0,0,0,0.5); }
-        .modal .submit-button { background-color: #28a745; color: white; padding: 12px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-size: 1.1em; }
-        .modal .submit-button:hover { background-color: #218838; }
-        
-        @media (max-width: 768px) { 
-            .header-top { flex-direction: column; text-align: center; } .contacts { margin-top: 20px; } 
-            .banner-overlay h2 { font-size: 1.5em; } .banner-overlay p { font-size: 1em; padding: 10px; }
+
+        header img.logo {
+            width: 200px;
+            height: auto;
+            filter: drop-shadow(0 0 10px #00ffff); /* Неоновый эффект */
+            animation: rotateIn 2s ease-in-out;
+        }
+
+        header h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5em;
+            text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: #00ffff;
+            margin: 0 15px;
+            text-decoration: none;
+            text-shadow: 0 0 5px #00ff00;
+            transition: text-shadow 0.3s, transform 0.3s;
+        }
+
+        nav a:hover {
+            text-shadow: 0 0 15px #ff00ff;
+            transform: scale(1.1);
+        }
+
+        .hero {
+            background-image: url('hero-bg.jpg'); /* Placeholder: ночной уличный фон с неоном и тюнингованными авто (Unsplash: "neon street racing car") */
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            text-align: center;
+            padding: 150px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0,255,0,0.2), rgba(0,0,0,0.5));
+            animation: speedLines 5s linear infinite;
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4em;
+            text-shadow: 0 0 20px #00ff00, 0 0 30px #ff00ff;
+            animation: flicker 1.5s infinite alternate;
+        }
+
+        .hero p {
+            font-size: 2em;
+            text-shadow: 0 0 10px #00ffff;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #00ff00, #00ffff);
+            color: #000000;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            box-shadow: 0 0 15px #00ff00;
+            transition: box-shadow 0.3s, transform 0.3s;
+            animation: pulse 1.5s infinite;
+        }
+
+        .btn:hover {
+            box-shadow: 0 0 30px #ff00ff;
+            transform: scale(1.1);
+        }
+
+        section {
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        #about {
+            background: rgba(0, 0, 0, 0.7);
+            box-shadow: inset 0 0 50px #001f3f;
+        }
+
+        #about img {
+            width: 60%;
+            border: 2px solid #00ffff;
+            box-shadow: 0 0 20px #00ff00;
+            animation: zoomIn 2s ease-in-out;
+        }
+
+        #services {
+            background: linear-gradient(to bottom, #001f3f, #000000);
+        }
+
+        .service-item {
+            display: inline-block;
+            width: 28%;
+            margin: 20px;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 0 25px #ff00ff;
+            transition: transform 0.3s;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-item img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 0 15px #00ffff;
+        }
+
+        #advantages {
+            background: rgba(0, 31, 63, 0.8); /* Темно-синий как в NFS */
+        }
+
+        .advantage {
+            margin: 30px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            border-left: 5px solid #00ff00;
+            text-shadow: 0 0 5px #ffffff;
+            animation: bounceIn 1.5s;
+        }
+
+        #reviews {
+            background: linear-gradient(to top, #000000, #001f3f);
+        }
+
+        .review {
+            margin: 30px auto;
+            width: 60%;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 0 20px #ff00ff;
+            animation: fadeIn 2s;
+        }
+
+        #contacts {
+            background: #000000;
+            color: #00ffff;
+            box-shadow: 0 0 30px #00ff00;
+        }
+
+        footer {
+            background: #000000;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 0 0 5px #00ffff;
+        }
+
+        /* Анимации в стиле NFS: неон, скорость, flicker */
+        @keyframes neonPulse {
+            0% { box-shadow: 0 0 20px #00ff00; }
+            100% { box-shadow: 0 0 40px #ff00ff; }
+        }
+
+        @keyframes flicker {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes fadeInUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            50% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes rotateIn {
+            from { transform: rotate(-360deg); opacity: 0; }
+            to { transform: rotate(0); opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes speedLines {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 -1000px; } /* Имитация скорости */
         }
     </style>
 </head>
 <body>
-    <!-- Первый блок: Хедер с тёмным фоном -->
+
     <header>
-        <div class="header-top">
-            <!-- Логотип в левом верхнем углу -->
-            <img src="autoberry13.png" alt="ENTA AUTO Логотип" class="logo"> <!-- Исправленный src -->
-            
-            <!-- Телефоны и кнопка в правом верхнем углу -->
-            <div class="contacts">
-                <a href="tel:+79934618990" class="phone">+7(993)461-89-90</a>
-                <a href="tel:+79171039557" class="phone">+7(917)103-95-57</a>
-                <button class="button" onclick="openModal()">Заказать подбор</button>
-            </div>
-        </div>
-        
-        <!-- Блок с новой картинкой (баннер) -->
-        <div class="hero-banner">
-            <img src="keys.png" alt="Передача ключей от авто"> <!-- Замени на "img/handshake-keys.png" после загрузки в GitHub -->
-            <div class="banner-overlay">
-                <h2>Сделка без рисков — ключи в ваших руках!</h2>
-                <p>ENTA AUTO: Надёжный автоподбор от экспертов</p>
-            </div>
-        </div>
+        <img src="logo.png" alt="ENTA Auto Logo" class="logo"> <!-- Placeholder: добавьте ваш логотип как logo.png -->
+        <h2>ENTA AUTO: Надёжный партнёр в поиске вашего авто.</h2>
+        <nav>
+            <a href="#about">О нас</a>
+            <a href="#services">Услуги</a>
+            <a href="#advantages">Преимущества</a>
+            <a href="#reviews">Отзывы</a>
+            <a href="#contacts">Контакты</a>
+        </nav>
     </header>
-    
-    <!-- Модальное окно -->
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2>Оставьте заявку</h2>
-            <p>Мы свяжемся и поможем подобрать идеальное авто</p>
-            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST"> <!-- Замени на свой Formspree URL -->
-                <input type="text" name="name" placeholder="Ваше имя" required>
-                <input type="tel" name="phone" placeholder="Введите телефон" required>
-                <button type="submit" class="submit-button">Оставить заявку</button>
-            </form>
+
+    <section class="hero">
+        <h1>ENTA Auto: Скорость и Надёжность в Автоподборе!</h1>
+        <p>Мы тюнингуем ваш поиск авто под максимальную производительность.</p>
+        <a href="#contacts" class="btn">Старт подбора</a>
+    </section>
+
+    <section id="about">
+        <h2>О команде ENTA Auto</h2>
+        <p>Мы - элита уличного автоподбора, как в NFS Underground. Эксперты с опытом в тюнинге и проверке. Используя данные с Auto.ru и Drom.ru, мы находим топовые тачки без подвоха.</p>
+        <img src="team.jpg" alt="Команда ENTA Auto в стиле NFS"> <!-- Placeholder: фото команды с неоновыми эффектами (Unsplash: "racing team neon", или сгенерируйте в ИИ) -->
+    </section>
+
+    <section id="services">
+        <h2>Наши услуги - Тюнинг вашего выбора</h2>
+        <div class="service-item">
+            <h3>Подбор тачки</h3>
+            <p>Ищем по бюджету, марке, с тюнингом под вас.</p>
+            <img src="service1.jpg" alt="Подбор авто в неоне"> <!-- Placeholder: тюнингованная машина (Unsplash: "tuned car neon") -->
         </div>
-    </div>
-    
-    <!-- JavaScript для модального окна и динамического года -->
-    <script>
-        function openModal() { document.getElementById('myModal').style.display = 'block'; }
-        function closeModal() { document.getElementById('myModal').style.display = 'none'; }
-        window.onclick = function(event) { if (event.target == document.getElementById('myModal')) closeModal(); }
-        
-        // Динамический год в футере
-        document.querySelector('footer p').innerHTML = '&copy; ' + new Date().getFullYear() + ' entaauto.ru';
-    </script>
-    
-    <!-- Placeholder для остальных блоков (расширь здесь) -->
-    <main>
-        <section style="padding: 40px; text-align: center;">
-            <h1>Добро пожаловать в ENTA AUTO</h1>
-            <p>Здесь можно добавить описание услуг, отзывы клиентов или галерею авто.</p>
-        </section>
-    </main>
-    <footer style="text-align: center; padding: 20px; background: #333; color: white;"><p>&copy; 2023 entaauto.ru</p></footer>
+        <div class="service-item">
+            <h3>Технический тюнинг-чек</h3>
+            <p>Проверяем движок, кузов, как в гараже NFS.</p>
+            <img src="service2.jpg" alt="Проверка авто"> <!-- Placeholder: осмотр с неоном (Unsplash: "car mechanic neon") -->
+        </div>
+        <div class="service-item">
+            <h3>Юридический дрифт</h3>
+            <p>Проверяем историю, без залогов и фейков.</p>
+            <img src="service3.jpg" alt="Юридическая проверка"> <!-- Placeholder: документы с неоновым свечением (Unsplash: "documents neon") -->
+        </div>
+    </section>
+
+    <section id="advantages">
+        <h2>Наши преимущества - Boost в автоподборе</h2>
+        <div class="advantage">
+            <h3>Суперскорость</h3>
+            <p>Находим авто за дни, не недели.</p>
+        </div>
+        <div class="advantage">
+            <h3>Неоновый контроль</h3>
+            <p>Полная проверка без скрытых дефектов.</p>
+        </div>
+        <div class="advantage">
+            <h3>Топливная экономия</h3>
+            <p>Цены от 5000 руб., с бонусами.</p>
+        </div>
+    </section>
+
+    <section id="reviews">
+        <h2>Отзывы - Гонки выигранные</h2>
+        <div class="review">
+            <p>"ENTA Auto - как нитро в поиске! Нашли мне тюнингованный седан за рекордное время." - Иван "Drifter" П.</p>
+        </div>
+        <div class="review">
+            <p>"Профессионалы уровня Underground! Сэкономили на сделке кучу бабла." - Анна "SpeedQueen" С.</p>
+        </div>
+        <div class="review">
+            <p>"Рекомендую для тех, кто хочет тачку без драм." - Михаил "Nitro" К.</p>
+        </div>
+    </section>
+
+    <section id="contacts">
+        <h2>Свяжитесь - Зажгите нитро!</h2>
+        <p>Телефоны: +7(933)461-89-90, +7(917)103-95-57</p>
+        <p>Email: info@entaauto.ru (замените на реальный)</p>
+        <a href="tel:+79334618990" class="btn">Позвонить</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 ENTA Auto. Все права защищены. Inspired by NFS Underground.</p>
+    </footer>
+
 </body>
 </html>
