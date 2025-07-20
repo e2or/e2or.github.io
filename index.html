@@ -3,241 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ENTA Auto - Надёжный партнёр в поиске вашего авто</title>
+    <meta name="description" content="ENTA AUTO - безопасный автоподбор. Помогаем найти идеальный автомобиль без рисков.">
+    <title>ENTA AUTO - Автоподбор</title>
     <style>
-        /* Основные стили */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; color: #333; }
+        
+        /* Хедер с адаптированным градиентным фоном (под картинку) */
+        header { 
+            background: linear-gradient(135deg, #1a1a1a 0%, #ff6600 100%); /* Градиент для гармонии с оранжевым в картинке */
+            color: white; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; position: relative; 
         }
-
-        header {
-            background-color: #007bff;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            position: relative;
+        .header-top { width: 100%; display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
+        .logo { max-width: 150px; height: auto; }
+        .contacts { text-align: right; }
+        .phone { display: block; font-size: 1.2em; margin-bottom: 5px; color: #fff; text-decoration: none; }
+        .button { background-color: #ff6600; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 1em; margin-top: 10px; display: inline-block; }
+        .button:hover { background-color: #e65c00; }
+        
+        /* Блок с картинкой (баннер) */
+        .hero-banner { position: relative; width: 100%; max-width: 800px; overflow: hidden; border-radius: 10px; transition: transform 0.3s; }
+        .hero-banner:hover { transform: scale(1.02); } /* Лёгкая анимация */
+        .hero-banner img { width: 100%; height: auto; display: block; } /* Картинка адаптивная */
+        .banner-overlay { 
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+            text-align: center; color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); /* Для читаемости на фоне */
+            background: rgba(0,0,0,0.3); /* Лёгкий полупрозрачный слой */
+            padding: 20px; border-radius: 5px; 
         }
-
-        header img.logo {
-            width: 150px;
-            height: auto;
-            animation: fadeIn 2s ease-in-out;
-        }
-
-        nav {
-            margin-top: 10px;
-        }
-
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #ffd700;
-        }
-
-        .hero {
-            background-image: url('hero-bg.jpg'); /* Placeholder: фон с автомобилем, скачайте из сети (например, бесплатное фото с Unsplash: поиск "car selection") */
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 100px 20px;
-            animation: slideIn 1.5s ease-out;
-        }
-
-        .hero h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-        }
-
-        .hero p {
-            font-size: 1.5em;
-        }
-
-        .btn {
-            background-color: #28a745;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-
-        .btn:hover {
-            background-color: #218838;
-            transform: scale(1.05);
-        }
-
-        section {
-            padding: 50px 20px;
-            text-align: center;
-        }
-
-        #about {
-            background-color: white;
-        }
-
-        #services {
-            background-color: #e9ecef;
-        }
-
-        .service-item {
-            display: inline-block;
-            width: 30%;
-            margin: 10px;
-            padding: 20px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            animation: fadeInUp 1s ease-in-out;
-        }
-
-        #advantages {
-            background-color: #f8f9fa;
-        }
-
-        .advantage {
-            margin: 20px;
-            animation: bounceIn 1.5s;
-        }
-
-        #reviews {
-            background-color: white;
-        }
-
-        .review {
-            margin: 20px;
-            font-style: italic;
-            animation: fadeIn 2s;
-        }
-
-        #contacts {
-            background-color: #007bff;
-            color: white;
-        }
-
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px;
-        }
-
-        /* Анимации */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideIn {
-            from { transform: translateY(-50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        @keyframes fadeInUp {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        @keyframes bounceIn {
-            0% { transform: scale(0.5); opacity: 0; }
-            50% { transform: scale(1.1); opacity: 1; }
-            100% { transform: scale(1); }
+        .banner-overlay h2 { font-size: 2em; margin: 0; }
+        .banner-overlay p { font-size: 1.2em; margin-top: 10px; }
+        
+        /* Модальное окно (адаптировано под автоподбор) */
+        .modal { display: none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.5); }
+        .modal-content { background-color: #fff; margin: 15% auto; padding: 20px; border-radius: 10px; width: 80%; max-width: 400px; text-align: center; }
+        .close { color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
+        .close:hover { color: #000; }
+        .modal h2 { margin: 0 0 10px; font-size: 1.5em; }
+        .modal p { margin: 0 0 20px; font-size: 1em; color: #666; }
+        .modal input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        .modal input::placeholder { color: rgba(0,0,0,0.5); }
+        .modal .submit-button { background-color: #28a745; color: white; padding: 12px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-size: 1.1em; }
+        .modal .submit-button:hover { background-color: #218838; }
+        
+        @media (max-width: 768px) { 
+            .header-top { flex-direction: column; text-align: center; } .contacts { margin-top: 20px; } 
+            .banner-overlay h2 { font-size: 1.5em; } .banner-overlay p { font-size: 1em; padding: 10px; }
         }
     </style>
 </head>
 <body>
-
+    <!-- Первый блок: Хедер с тёмным фоном -->
     <header>
-        <img src="autoberry13.png" alt="ENTA Auto Logo" class="logo"> <!-- Placeholder: добавьте ваш логотип как logo.png -->
-        <h2>ENTA AUTO: Надёжный партнёр в поиске вашего авто.</h2>
-        <nav>
-            <a href="#about">О нас</a>
-            <a href="#services">Услуги</a>
-            <a href="#advantages">Преимущества</a>
-            <a href="#reviews">Отзывы</a>
-            <a href="#contacts">Контакты</a>
-        </nav>
+        <div class="header-top">
+            <!-- Логотип в левом верхнем углу -->
+            <img src="autoberry13.png" alt="ENTA AUTO Логотип" class="logo"> <!-- Исправленный src -->
+            
+            <!-- Телефоны и кнопка в правом верхнем углу -->
+            <div class="contacts">
+                <a href="tel:+79934618990" class="phone">+7(993)461-89-90</a>
+                <a href="tel:+79171039557" class="phone">+7(917)103-95-57</a>
+                <button class="button" onclick="openModal()">Заказать подбор</button>
+            </div>
+        </div>
+        
+        <!-- Блок с новой картинкой (баннер) -->
+        <div class="hero-banner">
+            <img src="keys.png" alt="Передача ключей от авто"> <!-- Замени на "img/handshake-keys.png" после загрузки в GitHub -->
+            <div class="banner-overlay">
+                <h2>Сделка без рисков — ключи в ваших руках!</h2>
+                <p>ENTA AUTO: Надёжный автоподбор от экспертов</p>
+            </div>
+        </div>
     </header>
-
-    <section class="hero">
-        <h1>Найдём идеальный автомобиль для вас!</h1>
-        <p>Профессиональный автоподбор с гарантией качества.</p>
-        <a href="#contacts" class="btn">Связаться с нами</a>
-    </section>
-
-    <section id="about">
-        <h2>О компании ENTA Auto</h2>
-        <p>ENTA Auto - это команда экспертов с многолетним опытом в автоподборе. Мы помогаем клиентам найти надёжные автомобили, проверенные по всем параметрам. Используя данные из рынка (например, статистика по моделям от Avito Auto и Auto.ru), мы гарантируем лучший выбор.</p>
-        <img src="team.jpg" alt="Команда ENTA Auto" style="width: 50%; animation: fadeIn 2s;"> <!-- Placeholder: фото команды (Unsplash: "car experts team") -->
-    </section>
-
-    <section id="services">
-        <h2>Наши услуги</h2>
-        <div class="service-item">
-            <h3>Подбор автомобиля</h3>
-            <p>Ищем авто по вашим критериям: бюджет, марка, год выпуска.</p>
-            <img src="service1.jpg" alt="Подбор авто" style="width: 100%;"> <!-- Placeholder: фото поиска авто (Unsplash: "car search") -->
+    
+    <!-- Модальное окно -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Оставьте заявку</h2>
+            <p>Мы свяжемся и поможем подобрать идеальное авто</p>
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST"> <!-- Замени на свой Formspree URL -->
+                <input type="text" name="name" placeholder="Ваше имя" required>
+                <input type="tel" name="phone" placeholder="Введите телефон" required>
+                <button type="submit" class="submit-button">Оставить заявку</button>
+            </form>
         </div>
-        <div class="service-item">
-            <h3>Техническая проверка</h3>
-            <p>Полный осмотр: двигатель, кузов, электроника.</p>
-            <img src="service2.jpg" alt="Проверка авто" style="width: 100%;"> <!-- Placeholder: фото осмотра (Unsplash: "car inspection") -->
-        </div>
-        <div class="service-item">
-            <h3>Юридическая проверка</h3>
-            <p>Проверка истории, пробега, залогов.</p>
-            <img src="service3.jpg" alt="Юридическая проверка" style="width: 100%;"> <!-- Placeholder: фото документов (Unsplash: "car documents") -->
-        </div>
-    </section>
-
-    <section id="advantages">
-        <h2>Почему выбрать нас?</h2>
-        <div class="advantage">
-            <h3>Экономия времени</h3>
-            <p>Мы берём на себя все поиски и проверки.</p>
-        </div>
-        <div class="advantage">
-            <h3>Гарантия качества</h3>
-            <p>Только проверенные авто без скрытых дефектов.</p>
-        </div>
-        <div class="advantage">
-            <h3>Доступные цены</h3>
-            <p>Услуги от 5000 руб., в зависимости от сложности.</p>
-        </div>
-    </section>
-
-    <section id="reviews">
-        <h2>Отзывы клиентов</h2>
-        <div class="review">
-            <p>"ENTA Auto нашли мне отличный кроссовер за неделю! Всё проверили, я доволен." - Иван П.</p>
-        </div>
-        <div class="review">
-            <p>"Профессионалы! Сэкономили мне кучу денег на переговорах." - Анна С.</p>
-        </div>
-        <div class="review">
-            <p>"Рекомендую всем, кто ищет авто без хлопот." - Михаил К.</p>
-        </div>
-    </section>
-
-    <section id="contacts">
-        <h2>Свяжитесь с нами</h2>
-        <p>Телефоны: +7(933)461-89-90, +7(917)103-95-57</p>
-        <p>Email: info@entaauto.ru (фантазия, замените на реальный)</p>
-        <a href="tel:+79334618990" class="btn">Позвонить</a>
-    </section>
-
-    <footer>
-        <p>&copy; 2023 ENTA Auto. Все права защищены.</p>
-    </footer>
-
+    </div>
+    
+    <!-- JavaScript для модального окна и динамического года -->
+    <script>
+        function openModal() { document.getElementById('myModal').style.display = 'block'; }
+        function closeModal() { document.getElementById('myModal').style.display = 'none'; }
+        window.onclick = function(event) { if (event.target == document.getElementById('myModal')) closeModal(); }
+        
+        // Динамический год в футере
+        document.querySelector('footer p').innerHTML = '&copy; ' + new Date().getFullYear() + ' entaauto.ru';
+    </script>
+    
+    <!-- Placeholder для остальных блоков (расширь здесь) -->
+    <main>
+        <section style="padding: 40px; text-align: center;">
+            <h1>Добро пожаловать в ENTA AUTO</h1>
+            <p>Здесь можно добавить описание услуг, отзывы клиентов или галерею авто.</p>
+        </section>
+    </main>
+    <footer style="text-align: center; padding: 20px; background: #333; color: white;"><p>&copy; 2023 entaauto.ru</p></footer>
 </body>
 </html>
