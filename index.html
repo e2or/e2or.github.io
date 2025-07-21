@@ -8,12 +8,12 @@
     <style>
         body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; color: #333; }
         
-        /* Хедер с картинкой как фоном (занимает всё пространство, сделан шире за счёт уменьшения бокового padding) */
+        /* Хедер с картинкой как фоном (занимает всё пространство, увеличена высота) */
         header { 
             background: url('header.png') no-repeat center/cover; /* Картинка как фон, заполняет весь header */
             color: white; padding: 20px 0; /* Уменьшили боковой padding до 0, чтобы блок был шире */
             position: relative; overflow: hidden; 
-            min-height: 500px; /* Минимальная высота, чтобы картинка заполняла пространство; можно изменить на 100vh для полноэкранного */
+            min-height: 700px; /* Увеличенная высота для растяжки блока; можно изменить на 80vh для динамической высоты */
             display: flex; flex-direction: column; justify-content: space-between; 
         }
         .header-top { 
@@ -48,7 +48,7 @@
         .modal .submit-button:hover { background-color: #218838; }
         
         @media (max-width: 768px) { 
-            header { min-height: 300px; padding: 10px 0; background-size: cover; /* Адаптация фона на мобильных */ }
+            header { min-height: 500px; padding: 10px 0; background-size: cover; /* Адаптация фона на мобильных, высота меньше для мобильных */ }
             .header-top, .header-content { padding: 0 20px; } /* Меньше отступов на мобильных */
             .header-content { flex-direction: column; text-align: center; }
             .header-text { max-width: 100%; margin-bottom: 20px; }
