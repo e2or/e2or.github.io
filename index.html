@@ -8,13 +8,14 @@
     <style>
         body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; color: #333; }
         
-        /* Хедер с фоном, идеально подходящим под картинку (тёмно-синий градиент с неоновыми акцентами) */
+        /* Хедер с реверсным градиентным фоном (от чёрного к тёмно-синему) */
         header { 
-            background: linear-gradient(135deg, #001f3f 0%, #1a1a1a 100%); /* Тёмно-синий градиент, гармонирующий с картинкой */
-            color: white; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; position: relative; 
+            background: linear-gradient(135deg, #1a1a1a 0%, #001f3f 100%); /* Реверс градиента */
+            color: white; padding: 40px 20px 0; /* Убрали padding-bottom, чтобы низ картинки был на границе */
+            display: flex; flex-direction: column; align-items: center; position: relative; 
         }
-        .header-top { width: 100%; display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 40px; }
-        .logo { max-width: 150px; height: auto; }
+        .header-top { width: 100%; display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0; /* Убрали margin-bottom для плотного прилегания */ }
+        .logo { max-width: 300px; height: auto; } /* Логотип в два раза больше */
         .contacts { 
             text-align: right; display: flex; flex-direction: column; align-items: flex-end; /* Контакты в колонку, картинка снизу */
         }
@@ -24,8 +25,8 @@
         
         /* Блок с картинкой (в правой части, под телефонами) */
         .hero-image { 
-            max-width: 400px; /* Ширина картинки для правой части */
-            margin-top: 20px; /* Отступ от телефонов */
+            max-width: 800px; /* Увеличение в два раза */
+            margin-top: 10px; /* Минимальный отступ от кнопки, чтобы верх был возле неё */
             border-radius: 10px; box-shadow: 0 0 10px rgba(0, 255, 255, 0.3); /* Неоновый акцент, как в картинке */
             transition: transform 0.3s; 
         }
@@ -65,7 +66,7 @@
                 <button class="button" onclick="openModal()">Заказать подбор</button>
                 <!-- Картинка под телефонами -->
                 <div class="hero-image">
-                    <img src="hed.png" alt="Футуристический автомобиль с анализом"> <!-- Src без папки; замени на реальное имя файла -->
+                    <img src="hed.png" alt="Футуристический автомобиль с анализом"> <!-- Src без папки; имя файла как указано */
                 </div>
             </div>
         </div>
