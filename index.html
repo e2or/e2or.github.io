@@ -13,7 +13,7 @@
             background: url('header.png') no-repeat center/cover; /* Картинка как фон, заполняет весь header */
             color: white; padding: 20px 0; /* Уменьшили боковой padding до 0, чтобы блок был шире */
             position: relative; overflow: hidden; 
-            min-height: 80vh; /* Увеличенная высота для растяжки блока; можно изменить на 80vh для динамической высоты */
+            min-height: 80vh; /* Увеличенная высота как у тебя */
             display: flex; flex-direction: column; justify-content: space-between; 
         }
         .header-top { 
@@ -35,6 +35,16 @@
         .header-text .learn-button:hover { background-color: #e65c00; }
         .header-image { max-width: 45%; visibility: hidden; /* Скрываем, так как фото теперь в фоне */ }
         
+        /* Лозунг внизу справа (с полупрозрачным фоном для красоты) */
+        .slogan { 
+            position: absolute; bottom: 20px; right: 40px; /* Внизу справа */
+            background: rgba(0, 0, 0, 0.5); /* Полупрозрачный чёрный фон для читаемости */
+            padding: 10px 20px; border-radius: 5px; 
+            font-size: 1.2em; font-style: italic; color: #fff; 
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.7); z-index: 2; 
+            max-width: 40%; text-align: right; 
+        }
+        
         /* Модальное окно (адаптировано под автоподбор) */
         .modal { display: none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.5); }
         .modal-content { background-color: #fff; margin: 15% auto; padding: 20px; border-radius: 10px; width: 80%; max-width: 400px; text-align: center; }
@@ -48,12 +58,13 @@
         .modal .submit-button:hover { background-color: #218838; }
         
         @media (max-width: 768px) { 
-            header { min-height: 500px; padding: 10px 0; background-size: cover; /* Адаптация фона на мобильных, высота меньше для мобильных */ }
-            .header-top, .header-content { padding: 0 20px; } /* Меньше отступов на мобильных */
+            header { min-height: 60vh; padding: 10px 0; background-size: cover; /* Адаптация на мобильных */ }
+            .header-top, .header-content { padding: 0 20px; }
             .header-content { flex-direction: column; text-align: center; }
             .header-text { max-width: 100%; margin-bottom: 20px; }
             .nav { flex-direction: column; margin-top: 10px; }
             .nav a, .nav button { margin: 5px 0; }
+            .slogan { bottom: 10px; right: 10px; font-size: 1em; max-width: 80%; text-align: center; /* Центрируем на мобильных */ }
         }
     </style>
 </head>
@@ -83,6 +94,9 @@
                 <!-- Пустой, так как фото теперь в фоне -->
             </div>
         </div>
+        
+        <!-- Лозунг внизу справа -->
+        <div class="slogan">ENTA AUTO: Надёжный партнёр в поиске вашего авто</div>
     </header>
     
     <!-- Модальное окно -->
