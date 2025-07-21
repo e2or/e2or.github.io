@@ -8,18 +8,26 @@
     <style>
         body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; color: #333; }
         
-        /* Хедер в стиле скриншота: тёмный фон со ступенчатым переходом */
+        /* Хедер в стиле скриншота: тёмный фон с многослойным ступенчатым переходом */
         header { 
             background-color: #222; /* Тёмно-серый фон как на скриншоте */
             color: white; padding: 20px 40px; position: relative; overflow: hidden; 
             min-height: 400px; /* Минимальная высота для контента */
         }
-        header::before { /* Ступенчатый переход: диагональные полосы/слои */
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+        /* Многослойные ступеньки: имитация диагональных слоёв с помощью pseudo-элементов */
+        header::before { 
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; 
             background: repeating-linear-gradient(45deg, 
-                rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 10px, 
-                transparent 10px, transparent 20px); /* Ступеньки с прозрачными слоями */
-            opacity: 0.7; z-index: 1; pointer-events: none; 
+                rgba(255,255,255,0) 0, rgba(255,255,255,0) 20px, 
+                rgba(255,255,255,0.05) 20px, rgba(255,255,255,0.05) 40px, 
+                rgba(255,255,255,0) 40px, rgba(255,255,255,0) 60px, 
+                rgba(255,255,255,0.1) 60px, rgba(255,255,255,0.1) 80px); /* Многослойные ступеньки с градиентом */
+            opacity: 0.3; transform: rotate(45deg); z-index: 1; pointer-events: none; 
+        }
+        header::after { 
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+            background: linear-gradient(45deg, rgba(34,34,34,0.8) 0%, transparent 50%); /* Дополнительный градиент для глубины слоёв */
+            opacity: 0.5; z-index: 1; pointer-events: none; 
         }
         .header-top { 
             display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; position: relative; z-index: 2; 
@@ -40,9 +48,9 @@
         .header-text .learn-button:hover { background-color: #e65c00; }
         .header-image { 
             max-width: 45%; position: relative; 
-            clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%); /* Диагональный срез слева для ступенчатого перехода */
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 100%, 25% 80%, 20% 100%, 15% 80%, 10% 100%, 5% 80%, 0 100%); /* Ступенчатый срез слева для точного совпадения с фото */
         }
-        .header-image img { width: 100%; height: auto; border-radius: 10px; display: block; }
+        .header-image img { width: 100%; height: auto; display: block; }
         
         /* Модальное окно (адаптировано под автоподбор) */
         .modal { display: none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.5); }
