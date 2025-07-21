@@ -11,19 +11,26 @@
         /* Хедер с картинкой как фоном (занимает всё пространство, увеличена высота) */
         header { 
             background: url('header.png') no-repeat center/cover; /* Картинка как фон, заполняет весь header */
-            color: white; padding: 0; /* Убрали верхний padding, чтобы логотип был под "потолком" */
+            color: white; padding: 0; /* Убрали верхний padding, чтобы элементы были под "потолком" */
             position: relative; overflow: hidden; 
             min-height: 80vh; /* Увеличенная высота как у тебя */
             display: flex; flex-direction: column; justify-content: space-between; 
         }
         .header-top { 
-            display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; position: relative; z-index: 2; padding: 10px 40px; /* Минимальный верхний padding для отступа, но логотип прижат */
+            display: flex; justify-content: space-between; align-items: flex-start; /* Выравнивание по верху */
+            margin-bottom: 40px; position: relative; z-index: 2; padding: 0 40px; /* Убрали верхний padding для прижатия к потолку */
         }
         .logo { max-width: 300px; height: auto; margin-top: 0; /* Логотип прижат к верху */ }
-        .nav { display: flex; align-items: center; }
+        .nav { 
+            display: flex; flex-direction: column; align-items: flex-end; /* Нав в колонку, выравнивание по правому краю */
+        }
+        .phones { display: flex; justify-content: flex-end; margin-top: 0; /* Телефоны прижаты к верху */ }
         .nav a, .nav button { color: white; text-decoration: none; margin-left: 20px; font-size: 1em; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); /* Тень для видимости на фоне */ }
         .nav .phone { margin-left: 10px; }
-        .nav .button { background-color: #ff6600; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer; text-shadow: none; }
+        .nav .button { 
+            background-color: #ff6600; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer; text-shadow: none; 
+            margin-top: 10px; align-self: center; /* Кнопка посередине под номерами */
+        }
         .nav .button:hover { background-color: #e65c00; }
         
         /* Основной контент хедера (поверх фона) */
@@ -37,7 +44,7 @@
         
         /* Лозунг внизу справа (вариант 1: простой и элегантный, с тенью, italic и анимацией) */
         .slogan { 
-            position: absolute; bottom: 20px; right: calc(40px + 20cm); /* Сдвинут левее на 20 см (увеличено значение right) */
+            position: absolute; bottom: 20px; right: calc(40px - 5cm); /* Сдвинут правее на 5 см (ближе к правому краю) */
             font-size: 1.2em; font-style: italic; color: #fff; 
             text-shadow: 1px 1px 2px rgba(0,0,0,0.7); z-index: 2; 
             max-width: 40%; text-align: right; 
@@ -59,10 +66,11 @@
         
         @media (max-width: 768px) { 
             header { min-height: 60vh; padding: 10px 0; background-size: cover; /* Адаптация на мобильных */ }
-            .header-top, .header-content { padding: 0 20px; }
-            .header-content { flex-direction: column; text-align: center; }
+            .header-top { padding: 0 20px; align-items: center; } /* Корректировка для мобильных */
+            .header-content { padding: 0 20px; flex-direction: column; text-align: center; }
             .header-text { max-width: 100%; margin-bottom: 20px; }
-            .nav { flex-direction: column; margin-top: 10px; }
+            .nav { flex-direction: column; align-items: center; margin-top: 10px; }
+            .nav .phones { justify-content: center; }
             .nav a, .nav button { margin: 5px 0; }
             .slogan { bottom: 10px; right: auto; left: 50%; transform: translateX(-50%); font-size: 1em; max-width: 80%; text-align: center; /* Центрируем на мобильных */ }
         }
@@ -77,8 +85,10 @@
             
             <!-- Навигация/контакты справа (адаптировано под твои данные) -->
             <div class="nav">
-                <a href="tel:+79934618990" class="phone">+7(993)461-89-90</a>
-                <a href="tel:+79171039557" class="phone">+7(917)103-95-57</a>
+                <div class="phones">
+                    <a href="tel:+79934618990" class="phone">+7(993)461-89-90</a>
+                    <a href="tel:+79171039557" class="phone">+7(917)103-95-57</a>
+                </div>
                 <button class="button" onclick="openModal()">Заказать подбор</button>
             </div>
         </div>
