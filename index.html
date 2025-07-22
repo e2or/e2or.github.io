@@ -42,9 +42,7 @@
         /* Основной контент хедера (поверх фона) */
         .header-content { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2; flex: 1; padding: 0 40px; /* Добавили padding внутрь для отступов */ }
         .header-text { 
-            max-width: 50%; 
-            margin-top: -50px; /* Сдвиг выше (отрицательное значение) */
-            margin-left: 100px; /* Сдвиг правее (положительное значение) */
+            max-width: 50%; margin-top: -100px; /* Подняли выше (отрицательное значение) */
         }
         .header-text h1 { font-size: 2.5em; margin-bottom: 20px; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); /* Тень для видимости */ }
         .header-text .highlight { color: #ff6600; /* Оранжевый цвет для слова "гарантией" */ }
@@ -89,6 +87,28 @@
         }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         
+        /* Второй блок: Критерии проверки (как на фото) */
+        .criteria { 
+            padding: 40px 20px; text-align: center; background-color: #fff; /* Белый фон для контраста */
+        }
+        .criteria h2 { font-size: 2em; margin-bottom: 30px; color: #333; }
+        .criteria-list { 
+            display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; /* Flex для responsive сетки */
+        }
+        .criteria-item { 
+            background: #f8f8f8; padding: 20px; border-radius: 10px; width: 200px; text-align: center; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: transform 0.3s, opacity 0.5s; /* Лёгкая анимация: scale при hover и fade-in */
+            opacity: 0; animation: fadeInItem 1s forwards; /* Анимация появления */
+        }
+        .criteria-item:nth-child(1) { animation-delay: 0.2s; }
+        .criteria-item:nth-child(2) { animation-delay: 0.4s; }
+        .criteria-item:nth-child(3) { animation-delay: 0.6s; }
+        /* Добавь больше для других элементов */
+        .criteria-item:hover { transform: scale(1.05); } /* Анимация при hover */
+        .criteria-item img { width: 80px; height: auto; margin-bottom: 10px; } /* Placeholder для иконок */
+        .criteria-item p { font-size: 1em; color: #666; }
+        @keyframes fadeInItem { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        
         /* Модальное окно (адаптировано под автоподбор) */
         .modal { display: none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.5); }
         .modal-content { background-color: #fff; margin: 15% auto; padding: 20px; border-radius: 10px; width: 80%; max-width: 400px; text-align: center; }
@@ -101,24 +121,18 @@
         .modal .submit-button { background-color: #28a745; color: white; padding: 12px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-size: 1.1em; }
         .modal .submit-button:hover { background-color: #218838; }
         
-        /* Второй блок: целиком из картинки block2.png */
-        .second-block { 
-            width: 100%; /* Занимает всю ширину */
-            margin: 0; padding: 0; 
-        }
-        .second-block img { width: 100%; height: auto; display: block; } /* Картинка заполняет блок */
-        
         @media (max-width: 768px) { 
             header { min-height: 60vh; padding: 10px 0; background-size: cover; /* Адаптация на мобильных */ }
             .header-top { padding: 0 20px; align-items: center; } /* Корректировка для мобильных */
             .header-content { padding: 0 20px; flex-direction: column; text-align: center; }
-            .header-text { max-width: 100%; margin-bottom: 20px; margin-top: 0; margin-left: 0; /* Сброс сдвигов на мобильных */ }
+            .header-text { max-width: 100%; margin-bottom: 20px; margin-top: 0; /* Сброс для мобильных */ }
             .nav { flex-direction: column; align-items: center; margin-top: 10px; }
             .nav .phones { justify-content: center; background: none; /* Убираем фон на мобильных, если нужно */ }
             .nav a, .nav button { margin: 5px 0; }
             .slogan { bottom: 10px; right: auto; left: 50%; transform: translateX(-50%); font-size: 1em; max-width: 80%; text-align: center; /* Центрируем на мобильных */ }
             .check-form .form-fields { flex-direction: column; } /* Форма в столбик на мобильных */
             .check-form input { margin: 5px 0; }
+            .criteria-list { flex-direction: column; align-items: center; } /* Элементы в столбик на мобильных */
         }
     </style>
 </head>
@@ -178,6 +192,30 @@
         </div>
     </div>
     
+    <!-- Второй блок: Критерии проверки (как на фото) -->
+    <section class="criteria">
+        <h2>По каким критериям проводится проверка автомобиля</h2>
+        <div class="criteria-list">
+            <div class="criteria-item">
+                <img src="icon-suspension.png" alt="Подвеска автомобиля"> <!-- Добавь свою иконку -->
+                <p>Подвеска автомобиля</p>
+            </div>
+            <div class="criteria-item">
+                <img src="icon-engine.png" alt="Двигатель"> <!-- Добавь свою иконку -->
+                <p>Двигатель</p>
+            </div>
+            <div class="criteria-item">
+                <img src="icon-transmission.png" alt="Коробка передач"> <!-- Добавь свою иконку -->
+                <p>Коробка передач</p>
+            </div>
+            <div class="criteria-item">
+                <img src="icon-brakes.png" alt="Тормозная система"> <!-- Добавь свою иконку -->
+                <p>Тормозная система</p>
+            </div>
+            <!-- Добавь больше элементов по аналогии, если нужно (например, Кузов, Электрика и т.д.) -->
+        </div>
+    </section>
+    
     <!-- JavaScript для модального окна и динамического года -->
     <script>
         function openModal() { document.getElementById('myModal').style.display = 'block'; }
@@ -187,11 +225,6 @@
         // Динамический год в футере
         document.querySelector('footer p').innerHTML = '&copy; ' + new Date().getFullYear() + ' entaauto.ru';
     </script>
-    
-    <!-- Второй блок: целиком из картинки block2.png -->
-    <section class="second-block">
-        <img src="block2.png" alt="Второй блок">
-    </section>
     
     <!-- Placeholder для остальных блоков (расширь здесь) -->
     <main>
