@@ -41,7 +41,11 @@
         
         /* Основной контент хедера (поверх фона) */
         .header-content { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2; flex: 1; padding: 0 40px; /* Добавили padding внутрь для отступов */ }
-        .header-text { max-width: 50%; }
+        .header-text { 
+            max-width: 50%; 
+            margin-top: -50px; /* Сдвиг выше (отрицательное значение) */
+            margin-left: 100px; /* Сдвиг правее (положительное значение) */
+        }
         .header-text h1 { font-size: 2.5em; margin-bottom: 20px; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); /* Тень для видимости */ }
         .header-text .highlight { color: #ff6600; /* Оранжевый цвет для слова "гарантией" */ }
         .header-text p { font-size: 1.1em; margin-bottom: 30px; color: #ddd; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); }
@@ -97,11 +101,18 @@
         .modal .submit-button { background-color: #28a745; color: white; padding: 12px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-size: 1.1em; }
         .modal .submit-button:hover { background-color: #218838; }
         
+        /* Второй блок: целиком из картинки block2.png */
+        .second-block { 
+            width: 100%; /* Занимает всю ширину */
+            margin: 0; padding: 0; 
+        }
+        .second-block img { width: 100%; height: auto; display: block; } /* Картинка заполняет блок */
+        
         @media (max-width: 768px) { 
             header { min-height: 60vh; padding: 10px 0; background-size: cover; /* Адаптация на мобильных */ }
             .header-top { padding: 0 20px; align-items: center; } /* Корректировка для мобильных */
             .header-content { padding: 0 20px; flex-direction: column; text-align: center; }
-            .header-text { max-width: 100%; margin-bottom: 20px; }
+            .header-text { max-width: 100%; margin-bottom: 20px; margin-top: 0; margin-left: 0; /* Сброс сдвигов на мобильных */ }
             .nav { flex-direction: column; align-items: center; margin-top: 10px; }
             .nav .phones { justify-content: center; background: none; /* Убираем фон на мобильных, если нужно */ }
             .nav a, .nav button { margin: 5px 0; }
@@ -133,7 +144,7 @@
             <div class="header-text">
                 <h1>Автоподбор под ключ с <span class="highlight">гарантией</span>!</h1>
                 <p>Мы поможем подобрать автомобиль без рисков. Проверим историю, техническое состояние и юридическую чистоту. Бесплатно за счет торга!</p>
-                <!-- Новый блок с формой вместо кнопки "Узнать больше" -->
+                <!-- Новый блок с формой проверки авто (вместо кнопки "Узнать больше") -->
                 <div class="check-form">
                     <h3>Бесплатная проверка одного автомобиля, оставьте заявку и мы перезвоним вам в ближайшее время</h3>
                     <div class="form-fields">
@@ -176,6 +187,11 @@
         // Динамический год в футере
         document.querySelector('footer p').innerHTML = '&copy; ' + new Date().getFullYear() + ' entaauto.ru';
     </script>
+    
+    <!-- Второй блок: целиком из картинки block2.png -->
+    <section class="second-block">
+        <img src="block2.png" alt="Второй блок">
+    </section>
     
     <!-- Placeholder для остальных блоков (расширь здесь) -->
     <main>
