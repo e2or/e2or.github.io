@@ -71,7 +71,7 @@
             width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 8px solid white;
         }
         .check-form .submit-button:hover { background-color: #e6b800; }
-        .check-form .note { font-size: 0.8em; color: #666; text-align: center; margin-top: 10px; }
+        .check-form .note { font-size: 0.8em; color: #666; text-align: center; margin-top: 10px; /* Убрали тени для лучшей читаемости */ }
         
         /* Лозунг внизу справа (вариант 1: простой и элегантный, с тенью, italic и анимацией) */
         .slogan { 
@@ -104,7 +104,9 @@
         }
         .criteria h2 { font-size: 2em; margin-bottom: 30px; color: #333; }
         .criteria-list { 
-            display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; /* Flex для responsive сетки */
+            display: flex; justify-content: center; flex-wrap: wrap; gap: 200px; /* Отступ равный размеру элемента (200px) */
+            max-width: 1200px; /* Ограничение ширины для 3x3 сетки */
+            margin: 0 auto; 
         }
         .criteria-item { 
             background: #f8f8f8; padding: 20px; border-radius: 10px; width: 200px; text-align: center; 
@@ -119,6 +121,7 @@
         .criteria-item:nth-child(6) { animation-delay: 1.2s; }
         .criteria-item:nth-child(7) { animation-delay: 1.4s; }
         .criteria-item:nth-child(8) { animation-delay: 1.6s; }
+        .criteria-item:nth-child(9) { animation-delay: 1.8s; }
         .criteria-item:hover { transform: scale(1.05); } /* Анимация при hover */
         .criteria-item img { width: 80px; height: auto; margin-bottom: 10px; } /* Placeholder для иконок */
         .criteria-item p { font-size: 1em; color: #666; }
@@ -135,7 +138,7 @@
             .slogan { bottom: 10px; right: auto; left: 50%; transform: translateX(-50%); font-size: 1em; max-width: 80%; text-align: center; /* Центрируем на мобильных */ }
             .check-form .form-fields { flex-direction: column; } /* Форма в столбик на мобильных */
             .check-form input { margin: 5px 0; }
-            .criteria-list { flex-direction: column; align-items: center; } /* Элементы в столбик на мобильных */
+            .criteria-list { flex-direction: column; align-items: center; gap: 40px; /* Меньше отступов на мобильных */ }
         }
     </style>
 </head>
