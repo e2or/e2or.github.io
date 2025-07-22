@@ -71,7 +71,7 @@
             width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 8px solid white;
         }
         .check-form .submit-button:hover { background-color: #e6b800; }
-        .check-form .note { font-size: 0.8em; color: #666; text-align: center; margin-top: 10px; /* Убрали тени для лучшей читаемости */ }
+        .check-form .note { font-size: 0.8em; color: #000; text-align: center; margin-top: 10px; /* Просто чёрная читаемая надпись, без теней */ }
         
         /* Лозунг внизу справа (вариант 1: простой и элегантный, с тенью, italic и анимацией) */
         .slogan { 
@@ -104,7 +104,8 @@
         }
         .criteria h2 { font-size: 2em; margin-bottom: 30px; color: #333; }
         .criteria-list { 
-            display: flex; justify-content: center; flex-wrap: wrap; gap: 200px; /* Отступ равный размеру элемента (200px) */
+            display: grid; grid-template-columns: repeat(3, 200px); /* 3x3 сетка (3 столбца по 200px) */
+            justify-content: center; gap: 200px; /* Отступ равный размеру элемента (200px) */
             max-width: 1200px; /* Ограничение ширины для 3x3 сетки */
             margin: 0 auto; 
         }
@@ -138,7 +139,7 @@
             .slogan { bottom: 10px; right: auto; left: 50%; transform: translateX(-50%); font-size: 1em; max-width: 80%; text-align: center; /* Центрируем на мобильных */ }
             .check-form .form-fields { flex-direction: column; } /* Форма в столбик на мобильных */
             .check-form input { margin: 5px 0; }
-            .criteria-list { flex-direction: column; align-items: center; gap: 40px; /* Меньше отступов на мобильных */ }
+            .criteria-list { grid-template-columns: 1fr; gap: 40px; /* В столбик на мобильных с меньшими отступами */ }
         }
     </style>
 </head>
@@ -243,6 +244,10 @@
             <div class="criteria-item">
                 <img src="icon-price.png" alt="Цена и торг"> <!-- Добавь свою иконку -->
                 <p>Цена и торг</p>
+            </div>
+            <div class="criteria-item">
+                <img src="icon-diagnostics.png" alt="Компьютерная диагностика"> <!-- Добавь свою иконку -->
+                <p>Компьютерная диагностика</p>
             </div>
         </div>
     </section>
