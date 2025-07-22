@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="ENTA AUTO - безопасный автоподбор. Помогаем найти идеальный автомобиль без рисков.">
     <title>ENTA AUTO - Автоподбор</title>
+    <!-- Подключение шрифта для лозунга (Playfair Display - элегантный и подходящий для лозунгов) -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
         body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; color: #333; }
         
@@ -26,7 +28,7 @@
         }
         .phones { display: flex; justify-content: flex-end; margin-top: 20px; margin-right: 300px; /* Телефоны прижаты к верху */ }
         .nav a, .nav button { color: white; text-decoration: none; margin-left: 10px; font-size: 1em; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); /* Тень для видимости на фоне */ }
-        .nav .phone { margin-left: 10px; }
+        .nav .phone { margin-left: 10px; font-weight: bold; /* Сделали номера жирными для лучшей видимости */ }
         .nav .button { 
             background-color: #ff6600; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer; text-shadow: none; 
             margin-top: 10px; align-self: center; margin-right: 300px; /* Кнопка посередине под номерами */
@@ -37,6 +39,7 @@
         .header-content { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2; flex: 1; padding: 0 40px; /* Добавили padding внутрь для отступов */ }
         .header-text { max-width: 50%; }
         .header-text h1 { font-size: 2.5em; margin-bottom: 20px; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); /* Тень для видимости */ }
+        .header-text .highlight { color: #ff6600; /* Оранжевый цвет для слова "гарантией" */ }
         .header-text p { font-size: 1.1em; margin-bottom: 30px; color: #ddd; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); }
         .header-text .learn-button { background-color: #ff6600; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 1em; text-shadow: none; }
         .header-text .learn-button:hover { background-color: #e65c00; }
@@ -45,7 +48,9 @@
         /* Лозунг внизу справа (вариант 1: простой и элегантный, с тенью, italic и анимацией) */
         .slogan { 
             position: absolute; bottom: 20px; right: calc(500px + 1cm); /* Сдвинут правее на 5 см (ближе к правому краю) */
-            font-size: 1.2em; font-style: italic; color: #fff; 
+            font-size: 1.5em; /* Увеличенный размер букв */
+            font-family: 'Playfair Display', serif; /* Красивый шрифт для лозунгов (элегантный и подходящий) */
+            font-style: italic; color: #fff; 
             text-shadow: 1px 1px 2px rgba(0,0,0,0.7); z-index: 2; 
             max-width: 40%; text-align: right; 
             animation: fadeIn 2s; /* Анимация fade-in */
@@ -96,7 +101,7 @@
         <!-- Основной контент хедера (поверх фона) -->
         <div class="header-content">
             <div class="header-text">
-                <h1>Автоподбор под ключ с гарантией!</h1>
+                <h1>Автоподбор под ключ с <span class="highlight">гарантией</span>!</h1>
                 <p>Мы поможем подобрать автомобиль без рисков. Проверим историю, техническое состояние и юридическую чистоту. Бесплатно за счет торга!</p>
                 <button class="learn-button" onclick="openModal()">Узнать больше</button>
             </div>
