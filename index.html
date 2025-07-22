@@ -41,9 +41,7 @@
         
         /* Основной контент хедера (поверх фона) */
         .header-content { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2; flex: 1; padding: 0 40px; /* Добавили padding внутрь для отступов */ }
-        .header-text { 
-            max-width: 50%; margin-top: -100px; /* Подняли выше (отрицательное значение) */
-        }
+        .header-text { max-width: 50%; }
         .header-text h1 { font-size: 2.5em; margin-bottom: 20px; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); /* Тень для видимости */ }
         .header-text .highlight { color: #ff6600; /* Оранжевый цвет для слова "гарантией" */ }
         .header-text p { font-size: 1.1em; margin-bottom: 30px; color: #ddd; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); }
@@ -85,7 +83,20 @@
             max-width: 40%; text-align: right; 
             animation: fadeIn 2s; /* Анимация fade-in */
         }
+        .slogan .highlight { color: #ff0000; /* Красный цвет для слова "AUTO" как на логотипе */ }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        
+        /* Модальное окно (адаптировано под автоподбор) */
+        .modal { display: none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.5); }
+        .modal-content { background-color: #fff; margin: 15% auto; padding: 20px; border-radius: 10px; width: 80%; max-width: 400px; text-align: center; }
+        .close { color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
+        .close:hover { color: #000; }
+        .modal h2 { margin: 0 0 10px; font-size: 1.5em; }
+        .modal p { margin: 0 0 20px; font-size: 1em; color: #666; }
+        .modal input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        .modal input::placeholder { color: rgba(0,0,0,0.5); }
+        .modal .submit-button { background-color: #28a745; color: white; padding: 12px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-size: 1.1em; }
+        .modal .submit-button:hover { background-color: #218838; }
         
         /* Второй блок: Критерии проверки (как на фото) */
         .criteria { 
@@ -103,29 +114,21 @@
         .criteria-item:nth-child(1) { animation-delay: 0.2s; }
         .criteria-item:nth-child(2) { animation-delay: 0.4s; }
         .criteria-item:nth-child(3) { animation-delay: 0.6s; }
-        /* Добавь больше для других элементов */
+        .criteria-item:nth-child(4) { animation-delay: 0.8s; }
+        .criteria-item:nth-child(5) { animation-delay: 1.0s; }
+        .criteria-item:nth-child(6) { animation-delay: 1.2s; }
+        .criteria-item:nth-child(7) { animation-delay: 1.4s; }
+        .criteria-item:nth-child(8) { animation-delay: 1.6s; }
         .criteria-item:hover { transform: scale(1.05); } /* Анимация при hover */
         .criteria-item img { width: 80px; height: auto; margin-bottom: 10px; } /* Placeholder для иконок */
         .criteria-item p { font-size: 1em; color: #666; }
         @keyframes fadeInItem { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         
-        /* Модальное окно (адаптировано под автоподбор) */
-        .modal { display: none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.5); }
-        .modal-content { background-color: #fff; margin: 15% auto; padding: 20px; border-radius: 10px; width: 80%; max-width: 400px; text-align: center; }
-        .close { color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
-        .close:hover { color: #000; }
-        .modal h2 { margin: 0 0 10px; font-size: 1.5em; }
-        .modal p { margin: 0 0 20px; font-size: 1em; color: #666; }
-        .modal input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
-        .modal input::placeholder { color: rgba(0,0,0,0.5); }
-        .modal .submit-button { background-color: #28a745; color: white; padding: 12px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-size: 1.1em; }
-        .modal .submit-button:hover { background-color: #218838; }
-        
         @media (max-width: 768px) { 
             header { min-height: 60vh; padding: 10px 0; background-size: cover; /* Адаптация на мобильных */ }
             .header-top { padding: 0 20px; align-items: center; } /* Корректировка для мобильных */
             .header-content { padding: 0 20px; flex-direction: column; text-align: center; }
-            .header-text { max-width: 100%; margin-bottom: 20px; margin-top: 0; /* Сброс для мобильных */ }
+            .header-text { max-width: 100%; margin-bottom: 20px; }
             .nav { flex-direction: column; align-items: center; margin-top: 10px; }
             .nav .phones { justify-content: center; background: none; /* Убираем фон на мобильных, если нужно */ }
             .nav a, .nav button { margin: 5px 0; }
@@ -160,13 +163,13 @@
                 <p>Мы поможем подобрать автомобиль без рисков. Проверим историю, техническое состояние и юридическую чистоту. Бесплатно за счет торга!</p>
                 <!-- Новый блок с формой проверки авто (вместо кнопки "Узнать больше") -->
                 <div class="check-form">
-                    <h3>Бесплатная проверка одного автомобиля, оставьте заявку и мы перезвоним вам в ближайшее время</h3>
+                    <h3>Бесплатная проверка автомобиля. Заполните форму.</h3>
                     <div class="form-fields">
                         <input type="text" placeholder="Ссылка на объявление">
                         <input type="tel" placeholder="Ваш номер телефона">
                     </div>
                     <button class="submit-button">Проверить авто</button>
-                    <p class="note">Согласие с условиями политики конфиденциальности</p>
+                    <p class="note">Нажимая кнопку, вы даете согласие на обработку персональных данных</p>
                 </div>
             </div>
             <div class="header-image">
@@ -175,7 +178,7 @@
         </div>
         
         <!-- Лозунг внизу справа (вариант 1: простой и элегантный) -->
-        <div class="slogan">ENTA AUTO: Надёжный партнёр в поиске вашего авто</div>
+        <div class="slogan">ENTA <span class="highlight">AUTO</span>: Надёжный партнёр в поиске вашего авто</div>
     </header>
     
     <!-- Модальное окно -->
@@ -191,6 +194,16 @@
             </form>
         </div>
     </div>
+    
+    <!-- JavaScript для модального окна и динамического года -->
+    <script>
+        function openModal() { document.getElementById('myModal').style.display = 'block'; }
+        function closeModal() { document.getElementById('myModal').style.display = 'none'; }
+        window.onclick = function(event) { if (event.target == document.getElementById('myModal')) closeModal(); }
+        
+        // Динамический год в футере
+        document.querySelector('footer p').innerHTML = '&copy; ' + new Date().getFullYear() + ' entaauto.ru';
+    </script>
     
     <!-- Второй блок: Критерии проверки (как на фото) -->
     <section class="criteria">
@@ -209,22 +222,27 @@
                 <p>Коробка передач</p>
             </div>
             <div class="criteria-item">
-                <img src="icon-brakes.png" alt="Тормозная система"> <!-- Добавь свою иконку -->
-                <p>Тормозная система</p>
+                <img src="icon-body.png" alt="Кузовные элементы"> <!-- Добавь свою иконку -->
+                <p>Кузовные элементы</p>
             </div>
-            <!-- Добавь больше элементов по аналогии, если нужно (например, Кузов, Электрика и т.д.) -->
+            <div class="criteria-item">
+                <img src="icon-safety.png" alt="Системы безопасности"> <!-- Добавь свою иконку -->
+                <p>Системы безопасности</p>
+            </div>
+            <div class="criteria-item">
+                <img src="icon-legal.png" alt="Юридические проверки"> <!-- Добавь свою иконку -->
+                <p>Юридические проверки</p>
+            </div>
+            <div class="criteria-item">
+                <img src="icon-deal.png" alt="Сделка"> <!-- Добавь свою иконку -->
+                <p>Сделка</p>
+            </div>
+            <div class="criteria-item">
+                <img src="icon-price.png" alt="Цена и торг"> <!-- Добавь свою иконку -->
+                <p>Цена и торг</p>
+            </div>
         </div>
     </section>
-    
-    <!-- JavaScript для модального окна и динамического года -->
-    <script>
-        function openModal() { document.getElementById('myModal').style.display = 'block'; }
-        function closeModal() { document.getElementById('myModal').style.display = 'none'; }
-        window.onclick = function(event) { if (event.target == document.getElementById('myModal')) closeModal(); }
-        
-        // Динамический год в футере
-        document.querySelector('footer p').innerHTML = '&copy; ' + new Date().getFullYear() + ' entaauto.ru';
-    </script>
     
     <!-- Placeholder для остальных блоков (расширь здесь) -->
     <main>
