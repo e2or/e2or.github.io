@@ -28,7 +28,7 @@
         }
         .phones { 
             display: flex; justify-content: flex-end; margin-top: 20px; margin-right: 300px; /* Телефоны прижаты к верху */
-            background: rgba(0, 0, 0, 0.4); /* Лёгкий тёмный полупрозрачный фон для лучшей читаемости */
+            background: rgba(0, 0, 0, 0.6); /* Потемнее фон (увеличена непрозрачность до 60%) */
             padding: 5px 10px; border-radius: 5px; /* Мягкие края и отступы */
         }
         .nav a, .nav button { color: white; text-decoration: none; margin-left: 10px; font-size: 1em; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); /* Тень для видимости на фоне */ }
@@ -48,6 +48,30 @@
         .header-text .learn-button { background-color: #ff6600; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 1em; text-shadow: none; }
         .header-text .learn-button:hover { background-color: #e65c00; }
         .header-image { max-width: 45%; visibility: hidden; /* Скрываем, так как фото теперь в фоне */ }
+        
+        /* Новый блок с формой проверки авто (вместо кнопки "Узнать больше") */
+        .check-form { 
+            background: rgba(255, 255, 255, 0.9); /* Белый полупрозрачный фон как на фото */
+            padding: 20px; border-radius: 10px; max-width: 600px; 
+        }
+        .check-form h3 { font-size: 1.2em; margin-bottom: 15px; color: #333; text-align: center; }
+        .check-form .form-fields { display: flex; justify-content: space-between; margin-bottom: 10px; }
+        .check-form input { 
+            flex: 1; padding: 10px; border: none; border-radius: 5px; margin-right: 10px; 
+            font-size: 1em; box-sizing: border-box; 
+        }
+        .check-form input:last-child { margin-right: 0; }
+        .check-form .submit-button { 
+            background-color: #ffcc00; /* Жёлтый как на фото, но под твои цвета можно #ff6600 */
+            color: #333; padding: 10px; border: none; border-radius: 5px; cursor: pointer; 
+            font-size: 1em; width: 100%; position: relative; 
+        }
+        .check-form .submit-button::after { /* Белая стрелка как на фото */
+            content: ''; position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+            width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 8px solid white;
+        }
+        .check-form .submit-button:hover { background-color: #e6b800; }
+        .check-form .note { font-size: 0.8em; color: #666; text-align: center; margin-top: 10px; }
         
         /* Лозунг внизу справа (вариант 1: простой и элегантный, с тенью, italic и анимацией) */
         .slogan { 
@@ -82,6 +106,8 @@
             .nav .phones { justify-content: center; background: none; /* Убираем фон на мобильных, если нужно */ }
             .nav a, .nav button { margin: 5px 0; }
             .slogan { bottom: 10px; right: auto; left: 50%; transform: translateX(-50%); font-size: 1em; max-width: 80%; text-align: center; /* Центрируем на мобильных */ }
+            .check-form .form-fields { flex-direction: column; } /* Форма в столбик на мобильных */
+            .check-form input { margin: 5px 0; }
         }
     </style>
 </head>
@@ -107,7 +133,16 @@
             <div class="header-text">
                 <h1>Автоподбор под ключ с <span class="highlight">гарантией</span>!</h1>
                 <p>Мы поможем подобрать автомобиль без рисков. Проверим историю, техническое состояние и юридическую чистоту. Бесплатно за счет торга!</p>
-                <button class="learn-button" onclick="openModal()">Узнать больше</button>
+                <!-- Новый блок с формой вместо кнопки "Узнать больше" -->
+                <div class="check-form">
+                    <h3>Бесплатная проверка одного автомобиля, оставьте заявку и мы перезвоним вам в ближайшее время</h3>
+                    <div class="form-fields">
+                        <input type="text" placeholder="Ссылка на объявление">
+                        <input type="tel" placeholder="Ваш номер телефона">
+                    </div>
+                    <button class="submit-button">Проверить авто</button>
+                    <p class="note">Согласие с условиями политики конфиденциальности</p>
+                </div>
             </div>
             <div class="header-image">
                 <!-- Пустой, так как фото теперь в фоне -->
