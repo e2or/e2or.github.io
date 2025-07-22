@@ -26,7 +26,11 @@
         .nav { 
             display: flex; flex-direction: column; align-items: flex-end; /* Нав в колонку, выравнивание по правому краю */
         }
-        .phones { display: flex; justify-content: flex-end; margin-top: 20px; margin-right: 300px; /* Телефоны прижаты к верху */ }
+        .phones { 
+            display: flex; justify-content: flex-end; margin-top: 20px; margin-right: 300px; /* Телефоны прижаты к верху */
+            background: rgba(0, 0, 0, 0.4); /* Лёгкий тёмный полупрозрачный фон для лучшей читаемости */
+            padding: 5px 10px; border-radius: 5px; /* Мягкие края и отступы */
+        }
         .nav a, .nav button { color: white; text-decoration: none; margin-left: 10px; font-size: 1em; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); /* Тень для видимости на фоне */ }
         .nav .phone { margin-left: 10px; font-weight: bold; /* Сделали номера жирными для лучшей видимости */ }
         .nav .button { 
@@ -75,7 +79,7 @@
             .header-content { padding: 0 20px; flex-direction: column; text-align: center; }
             .header-text { max-width: 100%; margin-bottom: 20px; }
             .nav { flex-direction: column; align-items: center; margin-top: 10px; }
-            .nav .phones { justify-content: center; }
+            .nav .phones { justify-content: center; background: none; /* Убираем фон на мобильных, если нужно */ }
             .nav a, .nav button { margin: 5px 0; }
             .slogan { bottom: 10px; right: auto; left: 50%; transform: translateX(-50%); font-size: 1em; max-width: 80%; text-align: center; /* Центрируем на мобильных */ }
         }
