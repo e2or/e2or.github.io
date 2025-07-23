@@ -20,70 +20,63 @@
         }
         .header-top { 
             display: flex; justify-content: space-between; align-items: flex-start; /* Выравнивание по верху */
-            margin-bottom: 40px; position: relative; z-index: 2; padding: 0 40px; /* Убрали верхний padding для прижатия к потолку */
+            margin-bottom: 5%; position: relative; z-index: 2; padding: 0 5%; /* Относительный padding */
         }
-        .logo { max-width: 300px; height: auto; margin-top: -40px; margin-left: -50px; /* Логотип прижат к верху */ }
+        .logo { max-width: 20%; height: auto; margin-top: -5%; margin-left: -5%; /* Относительные единицы */ }
         .nav { 
             display: flex; flex-direction: column; align-items: flex-end; /* Нав в колонку, выравнивание по правому краю */
         }
         .phones { 
-            display: flex; justify-content: flex-end; margin-top: 20px; margin-right: 300px; /* Телефоны прижаты к верху */
-            background: rgba(0, 0, 0, 0.6); /* Потемнее фон (увеличена непрозрачность до 60%) */
-            padding: 5px 10px; border-radius: 5px; /* Мягкие края и отступы */
+            display: flex; justify-content: flex-end; margin-top: 2%; margin-right: 20%; /* Относительный margin */
+            background: rgba(0, 0, 0, 0.6); padding: 0.5em 1em; border-radius: 5px; 
         }
-        .nav a, .nav button { color: white; text-decoration: none; margin-left: 10px; font-size: 1em; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); /* Тень для видимости на фоне */ }
-        .nav .phone { margin-left: 10px; font-weight: bold; /* Сделали номера жирными для лучшей видимости */ }
+        .nav a, .nav button { color: white; text-decoration: none; margin-left: 1em; font-size: 1em; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); }
+        .nav .phone { margin-left: 1em; font-weight: bold; }
         .nav .button { 
-            background-color: #ff6600; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer; text-shadow: none; 
-            margin-top: 10px; align-self: center; margin-right: 300px; /* Кнопка посередине под номерами */
+            background-color: #ff6600; border: none; padding: 0.5em 1em; border-radius: 5px; cursor: pointer; text-shadow: none; 
+            margin-top: 1em; align-self: center; margin-right: 20%; 
         }
         .nav .button:hover { background-color: #e65c00; }
         
         /* Основной контент хедера (поверх фона) */
-        .header-content { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2; flex: 1; padding: 0 40px; /* Добавили padding внутрь для отступов */ }
+        .header-content { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2; flex: 1; padding: 0 5%; }
         .header-text { max-width: 50%; }
-        .header-text h1 { font-size: 2.5em; margin-bottom: 20px; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); /* Тень для видимости */ }
-        .header-text .highlight { color: #ff6600; /* Оранжевый цвет для слова "гарантией" */ }
-        .header-text p { font-size: 1.1em; margin-bottom: 30px; color: #ddd; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); }
-        .header-text .learn-button { background-color: #ff6600; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 1em; text-shadow: none; }
+        .header-text h1 { font-size: 2.5em; margin-bottom: 1em; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); }
+        .header-text .highlight { color: #ff6600; }
+        .header-text p { font-size: 1.1em; margin-bottom: 2em; color: #ddd; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); }
+        .header-text .learn-button { background-color: #ff6600; color: white; padding: 0.7em 1.5em; border: none; border-radius: 5px; cursor: pointer; font-size: 1em; text-shadow: none; }
         .header-text .learn-button:hover { background-color: #e65c00; }
-        .header-image { max-width: 45%; visibility: hidden; /* Скрываем, так как фото теперь в фоне */ }
+        .header-image { max-width: 45%; visibility: hidden; }
         
         /* Новый блок с формой проверки авто (вместо кнопки "Узнать больше") */
         .check-form { 
-            background: rgba(255, 255, 255, 0.9); /* Белый полупрозрачный фон как на фото */
-            padding: 20px; border-radius: 10px; max-width: 600px; 
+            background: rgba(255, 255, 255, 0.9); padding: 2%; border-radius: 10px; max-width: 50%; 
         }
-        .check-form h3 { font-size: 1.2em; margin-bottom: 15px; color: #333; text-align: center; }
-        .check-form .form-fields { display: flex; justify-content: space-between; margin-bottom: 10px; }
+        .check-form h3 { font-size: 1.2em; margin-bottom: 1em; color: #333; text-align: center; }
+        .check-form .form-fields { display: flex; justify-content: space-between; margin-bottom: 1em; }
         .check-form input { 
-            flex: 1; padding: 10px; border: none; border-radius: 5px; margin-right: 10px; 
+            flex: 1; padding: 1em; border: none; border-radius: 5px; margin-right: 1em; 
             font-size: 1em; box-sizing: border-box; 
         }
         .check-form input:last-child { margin-right: 0; }
         .check-form .submit-button { 
-            background-color: #ffcc00; /* Жёлтый как на фото, но под твои цвета можно #ff6600 */
-            color: #333; padding: 10px; border: none; border-radius: 5px; cursor: pointer; 
+            background-color: #ffcc00; color: #333; padding: 1em; border: none; border-radius: 5px; cursor: pointer; 
             font-size: 1em; width: 100%; position: relative; 
         }
-        .check-form .submit-button::after { /* Белая стрелка как на фото */
-            content: ''; position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
-            width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 8px solid white;
+        .check-form .submit-button::after { content: ''; position: absolute; right: 1em; top: 50%; transform: translateY(-50%);
+            width: 0; height: 0; border-top: 0.5em solid transparent; border-bottom: 0.5em solid transparent; border-left: 0.8em solid white;
         }
         .check-form .submit-button:hover { background-color: #e6b800; }
-        .check-form .note { font-size: 0.8em; color: #000; text-align: center; margin-top: 10px; /* Просто чёрная читаемая надпись, без теней */ }
+        .check-form .note { font-size: 0.8em; color: #000; text-align: center; margin-top: 1em; }
         
         /* Лозунг внизу справа (вариант 1: простой и элегантный, с тенью, italic и анимацией) */
         .slogan { 
-            position: absolute; bottom: 20px; right: calc(500px + 1cm); /* Сдвинут правее на 5 см (ближе к правому краю) */
-            font-size: 1.5em; /* Увеличенный размер букв */
-            font-family: 'Playfair Display', serif; /* Красивый шрифт для лозунгов (элегантный и подходящий) */
-            font-style: italic; color: #fff; 
+            position: absolute; bottom: 2%; right: 5%; /* Относительные единицы */
+            font-size: 1.5em; font-family: 'Playfair Display', serif; font-style: italic; color: #fff; 
             text-shadow: 1px 1px 2px rgba(0,0,0,0.7); z-index: 2; 
-            max-width: 40%; text-align: right; 
-            animation: fadeIn 2s; /* Анимация fade-in */
+            max-width: 40%; text-align: right; animation: fadeIn 2s; 
         }
-        .slogan .highlight { color: #ff0000; /* Красный цвет для слова "AUTO" как на логотипе */ }
+        .slogan .highlight { color: #ff0000; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         
         /* Модальное окно (адаптировано под автоподбор) */
@@ -100,19 +93,18 @@
         
         /* Второй блок: Критерии проверки (как на фото) */
         .criteria { 
-            padding: 40px 20px; text-align: center; background-color: #fff; /* Белый фон для контраста */
+            padding: 5% 2%; text-align: center; background-color: #fff; /* Белый фон для контраста */
         }
-        .criteria h2 { font-size: 2em; margin-bottom: 30px; color: #333; }
+        .criteria h2 { font-size: 2em; margin-bottom: 2%; color: #333; }
         .criteria-list { 
-            display: grid; grid-template-columns: repeat(3, 200px); /* 3x3 сетка (3 столбца по 200px) */
-            justify-content: center; gap: 200px; /* Отступ равный размеру элемента (200px) */
-            max-width: 1200px; /* Ограничение ширины для 3x3 сетки */
-            margin: 0 auto; 
+            display: grid; grid-template-columns: repeat(3, 1fr); /* Гибкая сетка */
+            justify-content: center; gap: 5%; /* Относительный gap */
+            max-width: 90%; margin: 0 auto; 
         }
         .criteria-item { 
-            background: #f8f8f8; padding: 20px; border-radius: 10px; width: 200px; text-align: center; 
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: transform 0.3s, opacity 0.5s; /* Лёгкая анимация: scale при hover и fade-in */
-            opacity: 0; animation: fadeInItem 1s forwards; /* Анимация появления */
+            background: #f8f8f8; padding: 5%; border-radius: 10px; text-align: center; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: transform 0.3s, opacity 0.5s; 
+            opacity: 0; animation: fadeInItem 1s forwards; 
         }
         .criteria-item:nth-child(1) { animation-delay: 0.2s; }
         .criteria-item:nth-child(2) { animation-delay: 0.4s; }
@@ -123,47 +115,65 @@
         .criteria-item:nth-child(7) { animation-delay: 1.4s; }
         .criteria-item:nth-child(8) { animation-delay: 1.6s; }
         .criteria-item:nth-child(9) { animation-delay: 1.8s; }
-        .criteria-item:hover { transform: scale(1.05); } /* Анимация при hover */
-        .criteria-item img { width: 80px; height: auto; margin-bottom: 10px; } /* Placeholder для иконок */
+        .criteria-item:hover { transform: scale(1.05); }
+        .criteria-item img { width: 80px; height: auto; margin-bottom: 10px; }
         .criteria-item p { font-size: 1em; color: #666; }
         @keyframes fadeInItem { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         
         /* Медиа-запросы для адаптивности (расширенные) */
-        @media (max-width: 1200px) { /* Для ноутбуков (меньше 1200px) */
-            .logo { max-width: 250px; margin-top: -30px; margin-left: -30px; } /* Уменьшаем логотип */
-            .phones { margin-right: 15%; } /* Относительный margin вместо фиксированного 300px */
-            .nav .button { margin-right: 15%; } /* Кнопка адаптируется */
-            .slogan { right: calc(30% + 1cm); font-size: 1.3em; max-width: 50%; } /* Слоган адаптируется */
-            .header-content { padding: 0 5%; } /* Уменьшаем padding */
-            .header-text { max-width: 60%; }
+        @media (max-width: 1200px) { /* Для больших ноутбуков */
+            .logo { max-width: 25%; margin-top: -4%; margin-left: -4%; }
+            .phones { margin-right: 15%; }
+            .nav .button { margin-right: 15%; }
+            .slogan { right: 10%; font-size: 1.4em; max-width: 50%; }
+            .header-content { padding: 0 4%; }
+            .header-text { max-width: 55%; }
             .header-text h1 { font-size: 2.2em; }
-            .check-form { max-width: 80%; padding: 15px; }
-            .criteria { padding: 30px 15px; }
+            .check-form { max-width: 70%; padding: 3%; }
+            .criteria { padding: 4% 2%; }
             .criteria h2 { font-size: 1.8em; }
-            .criteria-list { grid-template-columns: repeat(2, 1fr); gap: 100px; max-width: 90%; } /* Сетка в 2 столбца */
-            .criteria-item { width: 100%; max-width: 250px; padding: 15px; }
+            .criteria-list { grid-template-columns: repeat(2, 1fr); gap: 4%; max-width: 95%; }
+            .criteria-item { padding: 4%; }
         }
 
-        @media (max-width: 768px) { /* Для мобильных и маленьких ноутбуков (меньше 768px) */
-            header { min-height: 60vh; padding: 10px 0; background-size: cover; /* Адаптация на мобильных */ }
-            .header-top { padding: 0 20px; align-items: center; flex-direction: column; } /* Стек в столбец */
-            .logo { max-width: 200px; margin: 10px auto -20px; } /* Центрируем логотип, корректируем margin */
-            .nav { align-items: center; margin-top: 10px; } /* Нав по центру */
-            .phones { justify-content: center; background: none; margin-right: 0; flex-direction: column; align-items: center; } /* Телефоны в столбец по центру */
-            .nav .phone { margin: 5px 0; }
-            .nav .button { margin-right: 0; margin-top: 10px; } /* Кнопка по центру */
-            .header-content { padding: 0 20px; flex-direction: column; text-align: center; align-items: center; }
-            .header-text { max-width: 100%; margin-bottom: 20px; }
-            .header-text h1 { font-size: 1.8em; }
+        @media (max-width: 1024px) { /* Для типичных ноутбуков (1366x768 и меньше) */
+            .logo { max-width: 30%; margin-top: -3%; margin-left: -3%; }
+            .phones { margin-right: 10%; flex-wrap: wrap; } /* Если номера не помещаются, wrap */
+            .nav .button { margin-right: 10%; padding: 0.6em 1.2em; }
+            .slogan { right: 5%; font-size: 1.3em; max-width: 60%; }
+            .header-content { padding: 0 3%; flex-wrap: wrap; } /* Wrap если тесно */
+            .header-text { max-width: 100%; margin-bottom: 2%; }
+            .header-text h1 { font-size: 2em; }
             .header-text p { font-size: 1em; }
-            .slogan { bottom: 10px; right: auto; left: 50%; transform: translateX(-50%); font-size: 1.2em; max-width: 90%; text-align: center; /* Центрируем на мобильных */ }
-            .check-form { max-width: 100%; padding: 15px; }
-            .check-form .form-fields { flex-direction: column; } /* Поля в столбец */
-            .check-form input { margin: 10px 0; }
-            .criteria { padding: 20px 10px; }
-            .criteria h2 { font-size: 1.5em; }
-            .criteria-list { grid-template-columns: 1fr; gap: 40px; /* В столбик на мобильных с меньшими отступами */ }
-            .criteria-item { width: 100%; max-width: 300px; margin: 0 auto; padding: 15px; }
+            .check-form { max-width: 90%; padding: 2.5%; }
+            .check-form .form-fields { flex-direction: column; } /* Поля в столбец для узких экранов */
+            .check-form input { margin: 0.5em 0; }
+            .criteria { padding: 3% 1.5%; }
+            .criteria h2 { font-size: 1.6em; }
+            .criteria-list { grid-template-columns: repeat(2, 1fr); gap: 3%; }
+            .criteria-item { padding: 3%; }
+        }
+
+        @media (max-width: 768px) { /* Для мобильных и маленьких экранов */
+            header { min-height: 60vh; padding: 2% 0; background-size: cover; }
+            .header-top { padding: 0 3%; align-items: center; flex-direction: column; }
+            .logo { max-width: 50%; margin: 2% auto -3%; }
+            .nav { align-items: center; margin-top: 2%; }
+            .phones { justify-content: center; background: none; margin-right: 0; flex-direction: column; align-items: center; }
+            .nav .phone { margin: 0.5em 0; }
+            .nav .button { margin-right: 0; margin-top: 1em; }
+            .header-content { padding: 0 3%; flex-direction: column; text-align: center; align-items: center; }
+            .header-text { max-width: 100%; margin-bottom: 3%; }
+            .header-text h1 { font-size: 1.8em; }
+            .header-text p { font-size: 0.9em; }
+            .slogan { bottom: 2%; right: auto; left: 50%; transform: translateX(-50%); font-size: 1.1em; max-width: 90%; text-align: center; }
+            .check-form { max-width: 100%; padding: 3%; }
+            .check-form .form-fields { flex-direction: column; }
+            .check-form input { margin: 1em 0; }
+            .criteria { padding: 3% 2%; }
+            .criteria h2 { font-size: 1.4em; }
+            .criteria-list { grid-template-columns: 1fr; gap: 2%; }
+            .criteria-item { width: 100%; max-width: 90%; margin: 0 auto; padding: 3%; }
         }
     </style>
 </head>
