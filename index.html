@@ -8,101 +8,99 @@
     <!-- Подключение шрифта для лозунга (Playfair Display - элегантный и подходящий для лозунгов) -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
+        :root { font-size: 16px; } /* Базовый размер для rem */
         body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; color: #333; }
         
         /* Хедер с картинкой как фоном (занимает всё пространство, увеличена высота) */
         header { 
-            background: url('header.png') no-repeat center/cover; /* Картинка как фон, заполняет весь header */
-            color: white; padding: 0; /* Убрали верхний padding, чтобы элементы были под "потолком" */
+            background: url('header.png') no-repeat center/cover; color: white; padding: 0; 
             position: relative; overflow: hidden; 
-            min-height: 80vh; /* Увеличенная высота как у тебя */
-            display: flex; flex-direction: column; justify-content: space-between; 
+            min-height: 80vh; display: flex; flex-direction: column; justify-content: space-between; 
         }
         .header-top { 
-            display: flex; justify-content: space-between; align-items: flex-start; /* Выравнивание по верху */
-            margin-bottom: 5%; position: relative; z-index: 2; padding: 0 5%; /* Относительный padding */
+            display: flex; justify-content: space-between; align-items: flex-start; 
+            margin-bottom: 5%; position: relative; z-index: 2; padding: 0 clamp(20px, 5%, 40px); 
         }
-        .logo { max-width: 20%; height: auto; margin-top: -5%; margin-left: -5%; /* Относительные единицы */ }
+        .logo { max-width: clamp(150px, 20vw, 300px); height: auto; margin-top: 0; margin-left: 0; } /* Гибкий размер без отрицательных margins */
         .nav { 
-            display: flex; flex-direction: column; align-items: flex-end; /* Нав в колонку, выравнивание по правому краю */
+            display: flex; flex-direction: column; align-items: flex-end; 
         }
         .phones { 
-            display: flex; justify-content: flex-end; margin-top: 2%; margin-right: 20%; /* Относительный margin */
-            background: rgba(0, 0, 0, 0.6); padding: 0.5em 1em; border-radius: 5px; 
+            display: flex; justify-content: flex-end; margin-top: clamp(10px, 2vw, 20px); margin-right: clamp(100px, 20vw, 300px); 
+            background: rgba(0, 0, 0, 0.6); padding: clamp(5px, 1vw, 10px); border-radius: 5px; 
         }
-        .nav a, .nav button { color: white; text-decoration: none; margin-left: 1em; font-size: 1em; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); }
-        .nav .phone { margin-left: 1em; font-weight: bold; }
+        .nav a, .nav button { color: white; text-decoration: none; margin-left: clamp(5px, 1vw, 10px); font-size: clamp(0.8em, 1vw, 1em); text-shadow: 1px 1px 2px rgba(0,0,0,0.7); }
+        .nav .phone { margin-left: clamp(5px, 1vw, 10px); font-weight: bold; }
         .nav .button { 
-            background-color: #ff6600; border: none; padding: 0.5em 1em; border-radius: 5px; cursor: pointer; text-shadow: none; 
-            margin-top: 1em; align-self: center; margin-right: 20%; 
+            background-color: #ff6600; border: none; padding: clamp(6px, 1vw, 8px) clamp(12px, 2vw, 16px); border-radius: 5px; cursor: pointer; text-shadow: none; 
+            margin-top: clamp(5px, 1vw, 10px); align-self: center; margin-right: clamp(100px, 20vw, 300px); 
         }
         .nav .button:hover { background-color: #e65c00; }
         
         /* Основной контент хедера (поверх фона) */
-        .header-content { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2; flex: 1; padding: 0 5%; }
+        .header-content { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2; flex: 1; padding: 0 clamp(20px, 5%, 40px); }
         .header-text { max-width: 50%; }
-        .header-text h1 { font-size: 2.5em; margin-bottom: 1em; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); }
+        .header-text h1 { font-size: clamp(1.8em, 3vw, 2.5em); margin-bottom: clamp(10px, 2vw, 20px); text-shadow: 1px 1px 2px rgba(0,0,0,0.7); }
         .header-text .highlight { color: #ff6600; }
-        .header-text p { font-size: 1.1em; margin-bottom: 2em; color: #ddd; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); }
-        .header-text .learn-button { background-color: #ff6600; color: white; padding: 0.7em 1.5em; border: none; border-radius: 5px; cursor: pointer; font-size: 1em; text-shadow: none; }
+        .header-text p { font-size: clamp(0.9em, 1.5vw, 1.1em); margin-bottom: clamp(15px, 3vw, 30px); color: #ddd; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); }
+        .header-text .learn-button { background-color: #ff6600; color: white; padding: clamp(8px, 1.5vw, 10px) clamp(15px, 3vw, 20px); border: none; border-radius: 5px; cursor: pointer; font-size: clamp(0.8em, 1.2vw, 1em); text-shadow: none; }
         .header-text .learn-button:hover { background-color: #e65c00; }
         .header-image { max-width: 45%; visibility: hidden; }
         
         /* Новый блок с формой проверки авто (вместо кнопки "Узнать больше") */
         .check-form { 
-            background: rgba(255, 255, 255, 0.9); padding: 2%; border-radius: 10px; max-width: 50%; 
+            background: rgba(255, 255, 255, 0.9); padding: clamp(10px, 3vw, 20px); border-radius: 10px; max-width: clamp(300px, 90%, 600px); width: 100%; 
         }
-        .check-form h3 { font-size: 1.2em; margin-bottom: 1em; color: #333; text-align: center; }
-        .check-form .form-fields { display: flex; justify-content: space-between; margin-bottom: 1em; }
+        .check-form h3 { font-size: clamp(1em, 1.5vw, 1.2em); margin-bottom: clamp(10px, 2vw, 15px); color: #333; text-align: center; }
+        .check-form .form-fields { display: flex; justify-content: space-between; margin-bottom: clamp(5px, 1vw, 10px); flex-wrap: wrap; } /* Wrap для маленьких экранов */
         .check-form input { 
-            flex: 1; padding: 1em; border: none; border-radius: 5px; margin-right: 1em; 
-            font-size: 1em; box-sizing: border-box; 
+            flex: 1 1 45%; padding: clamp(8px, 1.5vw, 10px); border: none; border-radius: 5px; margin-right: clamp(5px, 1vw, 10px); margin-bottom: 1em; 
+            font-size: clamp(0.8em, 1.2vw, 1em); box-sizing: border-box; 
         }
         .check-form input:last-child { margin-right: 0; }
         .check-form .submit-button { 
-            background-color: #ffcc00; color: #333; padding: 1em; border: none; border-radius: 5px; cursor: pointer; 
-            font-size: 1em; width: 100%; position: relative; 
+            background-color: #ffcc00; color: #333; padding: clamp(8px, 1.5vw, 10px); border: none; border-radius: 5px; cursor: pointer; 
+            font-size: clamp(0.8em, 1.2vw, 1em); width: 100%; position: relative; 
         }
-        .check-form .submit-button::after { content: ''; position: absolute; right: 1em; top: 50%; transform: translateY(-50%);
-            width: 0; height: 0; border-top: 0.5em solid transparent; border-bottom: 0.5em solid transparent; border-left: 0.8em solid white;
+        .check-form .submit-button::after { content: ''; position: absolute; right: clamp(5px, 1vw, 10px); top: 50%; transform: translateY(-50%);
+            width: 0; height: 0; border-top: clamp(4px, 0.8vw, 5px) solid transparent; border-bottom: clamp(4px, 0.8vw, 5px) solid transparent; border-left: clamp(6px, 1.2vw, 8px) solid white;
         }
         .check-form .submit-button:hover { background-color: #e6b800; }
-        .check-form .note { font-size: 0.8em; color: #000; text-align: center; margin-top: 1em; }
+        .check-form .note { font-size: clamp(0.6em, 1vw, 0.8em); color: #000; text-align: center; margin-top: clamp(5px, 1vw, 10px); }
         
         /* Лозунг внизу справа (вариант 1: простой и элегантный, с тенью, italic и анимацией) */
         .slogan { 
-            position: absolute; bottom: 2%; right: 5%; /* Относительные единицы */
-            font-size: 1.5em; font-family: 'Playfair Display', serif; font-style: italic; color: #fff; 
+            position: absolute; bottom: 2%; right: 5%; 
+            font-size: clamp(1em, 2vw, 1.5em); font-family: 'Playfair Display', serif; font-style: italic; color: #fff; 
             text-shadow: 1px 1px 2px rgba(0,0,0,0.7); z-index: 2; 
-            max-width: 40%; text-align: right; animation: fadeIn 2s; 
+            max-width: 40%; text-align: right; animation: fadeIn 2s; text-wrap: balance; /* Балансирует текст, чтобы не ломался некрасиво */
         }
         .slogan .highlight { color: #ff0000; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         
         /* Модальное окно (адаптировано под автоподбор) */
         .modal { display: none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.5); }
-        .modal-content { background-color: #fff; margin: 15% auto; padding: 20px; border-radius: 10px; width: 80%; max-width: 400px; text-align: center; }
-        .close { color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
+        .modal-content { background-color: #fff; margin: 15% auto; padding: clamp(15px, 5vw, 20px); border-radius: 10px; width: 80%; max-width: 400px; text-align: center; }
+        .close { color: #aaa; float: right; font-size: clamp(20px, 4vw, 28px); font-weight: bold; cursor: pointer; }
         .close:hover { color: #000; }
-        .modal h2 { margin: 0 0 10px; font-size: 1.5em; }
-        .modal p { margin: 0 0 20px; font-size: 1em; color: #666; }
-        .modal input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        .modal h2 { margin: 0 0 10px; font-size: clamp(1.2em, 3vw, 1.5em); }
+        .modal p { margin: 0 0 20px; font-size: clamp(0.8em, 2vw, 1em); color: #666; }
+        .modal input { width: 100%; padding: clamp(8px, 2vw, 10px); margin: clamp(8px, 2vw, 10px) 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
         .modal input::placeholder { color: rgba(0,0,0,0.5); }
-        .modal .submit-button { background-color: #28a745; color: white; padding: 12px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-size: 1.1em; }
+        .modal .submit-button { background-color: #28a745; color: white; padding: clamp(10px, 2.5vw, 12px); border: none; border-radius: 5px; cursor: pointer; width: 100%; font-size: clamp(0.9em, 2vw, 1.1em); }
         .modal .submit-button:hover { background-color: #218838; }
         
         /* Второй блок: Критерии проверки (как на фото) */
         .criteria { 
-            padding: 5% 2%; text-align: center; background-color: #fff; /* Белый фон для контраста */
+            padding: clamp(20px, 5vw, 40px) clamp(10px, 2vw, 20px); text-align: center; background-color: #fff; 
         }
-        .criteria h2 { font-size: 2em; margin-bottom: 2%; color: #333; }
+        .criteria h2 { font-size: clamp(1.5em, 4vw, 2em); margin-bottom: clamp(20px, 4vw, 30px); color: #333; }
         .criteria-list { 
-            display: grid; grid-template-columns: repeat(3, 1fr); /* Гибкая сетка */
-            justify-content: center; gap: 5%; /* Относительный gap */
-            max-width: 90%; margin: 0 auto; 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Авто-адаптивная сетка: 3 столбца на большом, 2 на среднем, 1 на маленьком */
+            justify-content: center; gap: clamp(20px, 5vw, 200px); max-width: 90%; margin: 0 auto; 
         }
         .criteria-item { 
-            background: #f8f8f8; padding: 5%; border-radius: 10px; text-align: center; 
+            background: #f8f8f8; padding: clamp(15px, 4vw, 20px); border-radius: 10px; text-align: center; 
             box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: transform 0.3s, opacity 0.5s; 
             opacity: 0; animation: fadeInItem 1s forwards; 
         }
@@ -116,183 +114,81 @@
         .criteria-item:nth-child(8) { animation-delay: 1.6s; }
         .criteria-item:nth-child(9) { animation-delay: 1.8s; }
         .criteria-item:hover { transform: scale(1.05); }
-        .criteria-item img { width: 80px; height: auto; margin-bottom: 10px; }
-        .criteria-item p { font-size: 1em; color: #666; }
+        .criteria-item img { width: clamp(60px, 10vw, 80px); height: auto; margin-bottom: clamp(5px, 1vw, 10px); }
+        .criteria-item p { font-size: clamp(0.8em, 1.5vw, 1em); color: #666; }
         @keyframes fadeInItem { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         
-        /* Медиа-запросы для адаптивности (расширенные) */
-        @media (max-width: 1200px) { /* Для больших ноутбуков */
-            .logo { max-width: 25%; margin-top: -4%; margin-left: -4%; }
-            .phones { margin-right: 15%; }
-            .nav .button { margin-right: 15%; }
-            .slogan { right: 10%; font-size: 1.4em; max-width: 50%; }
+        /* Медиа-запросы для адаптивности (расширенные для гармонии) */
+        @media (max-width: 1200px) { /* Большие ноутбуки */
+            header { min-height: 70vh; background-size: contain; }
+            .header-top { margin-bottom: 4%; padding: 0 4%; }
+            .logo { max-width: clamp(120px, 18vw, 250px); }
+            .phones { margin-right: 15%; padding: 0.8em; }
+            .nav .button { margin-right: 15%; padding: 0.7em 1.3em; }
+            .slogan { bottom: 3%; right: 8%; font-size: clamp(1.2em, 2.5vw, 1.4em); max-width: 50%; text-wrap: balance; }
             .header-content { padding: 0 4%; }
             .header-text { max-width: 55%; }
-            .header-text h1 { font-size: 2.2em; }
-            .check-form { max-width: 70%; padding: 3%; }
+            .header-text h1 { font-size: clamp(1.8em, 3.5vw, 2.2em); }
+            .check-form { max-width: clamp(400px, 80%, 500px); padding: 3%; }
             .criteria { padding: 4% 2%; }
-            .criteria h2 { font-size: 1.8em; }
-            .criteria-list { grid-template-columns: repeat(2, 1fr); gap: 4%; max-width: 95%; }
+            .criteria h2 { font-size: clamp(1.6em, 3.5vw, 1.8em); }
+            .criteria-list { gap: 4%; }
+        }
+
+        @media (max-width: 1024px) { /* Типичные ноутбуки (1366x768) */
+            header { min-height: 65vh; background-size: contain; }
+            .header-top { margin-bottom: 3%; padding: 0 3%; flex-wrap: wrap; justify-content: center; } /* Wrap если тесно */
+            .logo { max-width: clamp(100px, 25vw, 200px); margin: 1% auto; } /* Центрируем если нужно */
+            .phones { margin-right: 10%; flex-wrap: wrap; justify-content: center; }
+            .nav { align-items: center; }
+            .nav .button { margin-right: 0; margin-top: 1.5%; }
+            .slogan { bottom: 4%; right: 5%; font-size: clamp(1em, 2.8vw, 1.3em); max-width: 60%; text-align: center; left: 50%; transform: translateX(-50%); position: relative; } /* Переключаем на relative для гармонии */
+            .header-content { padding: 0 3%; flex-direction: column; align-items: center; }
+            .header-text { max-width: 80%; text-align: center; }
+            .header-text h1 { font-size: clamp(1.6em, 4vw, 2em); }
+            .check-form { max-width: clamp(300px, 90%, 450px); padding: 2.5%; }
+            .check-form .form-fields { flex-direction: column; align-items: center; }
+            .check-form input { width: 100%; margin: 0.5em 0; }
+            .criteria { padding: 3% 1.5%; }
+            .criteria h2 { font-size: clamp(1.4em, 3.8vw, 1.6em); }
+            .criteria-list { grid-template-columns: repeat(2, 1fr); gap: 3%; }
+        }
+
+        @media (max-width: 768px) { /* Таблеты и большие мобильные */
+            header { min-height: 60vh; background-size: contain; }
+            .header-top { padding: 0 2%; flex-direction: column; align-items: center; }
+            .logo { max-width: clamp(80px, 30vw, 150px); margin: 2% auto; }
+            .nav { align-items: center; margin-top: 2%; }
+            .phones { margin-right: 0; flex-direction: column; align-items: center; background: none; }
+            .nav .phone { margin: 0.5em 0; }
+            .nav .button { margin: 1em 0; }
+            .slogan { bottom: 3%; position: relative; left: 0; transform: none; font-size: clamp(0.9em, 3vw, 1.2em); max-width: 100%; text-align: center; padding: 1em; }
+            .header-content { padding: 0 2%; flex-direction: column; align-items: center; }
+            .header-text { max-width: 95%; text-align: center; }
+            .header-text h1 { font-size: clamp(1.4em, 5vw, 1.8em); }
+            .check-form { max-width: 95%; padding: 3%; }
+            .criteria { padding: 3% 2%; }
+            .criteria h2 { font-size: clamp(1.2em, 4vw, 1.5em); }
+            .criteria-list { grid-template-columns: 1fr; gap: 2%; }
             .criteria-item { padding: 4%; }
         }
 
-        @media (max-width: 1024px) { /* Для типичных ноутбуков (1366x768 и меньше) */
-            .logo { max-width: 30%; margin-top: -3%; margin-left: -3%; }
-            .phones { margin-right: 10%; flex-wrap: wrap; } /* Если номера не помещаются, wrap */
-            .nav .button { margin-right: 10%; padding: 0.6em 1.2em; }
-            .slogan { right: 5%; font-size: 1.3em; max-width: 60%; }
-            .header-content { padding: 0 3%; flex-wrap: wrap; } /* Wrap если тесно */
-            .header-text { max-width: 100%; margin-bottom: 2%; }
-            .header-text h1 { font-size: 2em; }
-            .header-text p { font-size: 1em; }
-            .check-form { max-width: 90%; padding: 2.5%; }
-            .check-form .form-fields { flex-direction: column; } /* Поля в столбец для узких экранов */
-            .check-form input { margin: 0.5em 0; }
-            .criteria { padding: 3% 1.5%; }
-            .criteria h2 { font-size: 1.6em; }
-            .criteria-list { grid-template-columns: repeat(2, 1fr); gap: 3%; }
-            .criteria-item { padding: 3%; }
-        }
-
-        @media (max-width: 768px) { /* Для мобильных и маленьких экранов */
-            header { min-height: 60vh; padding: 2% 0; background-size: cover; }
-            .header-top { padding: 0 3%; align-items: center; flex-direction: column; }
-            .logo { max-width: 50%; margin: 2% auto -3%; }
-            .nav { align-items: center; margin-top: 2%; }
-            .phones { justify-content: center; background: none; margin-right: 0; flex-direction: column; align-items: center; }
-            .nav .phone { margin: 0.5em 0; }
-            .nav .button { margin-right: 0; margin-top: 1em; }
-            .header-content { padding: 0 3%; flex-direction: column; text-align: center; align-items: center; }
-            .header-text { max-width: 100%; margin-bottom: 3%; }
-            .header-text h1 { font-size: 1.8em; }
-            .header-text p { font-size: 0.9em; }
-            .slogan { bottom: 2%; right: auto; left: 50%; transform: translateX(-50%); font-size: 1.1em; max-width: 90%; text-align: center; }
-            .check-form { max-width: 100%; padding: 3%; }
-            .check-form .form-fields { flex-direction: column; }
-            .check-form input { margin: 1em 0; }
-            .criteria { padding: 3% 2%; }
-            .criteria h2 { font-size: 1.4em; }
-            .criteria-list { grid-template-columns: 1fr; gap: 2%; }
-            .criteria-item { width: 100%; max-width: 90%; margin: 0 auto; padding: 3%; }
+        @media (max-width: 480px) { /* Маленькие мобильные (iPhone SE и т.д.) */
+            header { min-height: 50vh; }
+            .logo { max-width: clamp(60px, 40vw, 120px); }
+            .slogan { font-size: clamp(0.8em, 4vw, 1em); padding: 0.5em; }
+            .header-text h1 { font-size: clamp(1.2em, 6vw, 1.6em); }
+            .header-text p { font-size: clamp(0.8em, 3vw, 1em); }
+            .check-form { padding: 4%; }
+            .check-form h3 { font-size: clamp(0.9em, 3.5vw, 1.1em); }
+            .criteria { padding: 4% 3%; }
+            .criteria h2 { font-size: clamp(1em, 5vw, 1.4em); }
+            .criteria-item { padding: 5%; }
         }
     </style>
 </head>
 <body>
-    <!-- Хедер с картинкой как фоном -->
-    <header>
-        <div class="header-top">
-            <!-- Логотип слева -->
-            <img src="autoberry13.png" alt="ENTA AUTO Логотип" class="logo">
-            
-            <!-- Навигация/контакты справа (адаптировано под твои данные) -->
-            <div class="nav">
-                <div class="phones">
-                    <a href="tel:+79934618990" class="phone">+7(993)461-89-90</a>
-                    <a href="tel:+79171039557" class="phone">+7(917)103-95-57</a>
-                </div>
-                <button class="button" onclick="openModal()">Заказать подбор</button>
-            </div>
-        </div>
-        
-        <!-- Основной контент хедера (поверх фона) -->
-        <div class="header-content">
-            <div class="header-text">
-                <h1>Автоподбор под ключ с <span class="highlight">гарантией</span>!</h1>
-                <p>Мы поможем подобрать автомобиль без рисков. Проверим историю, техническое состояние и юридическую чистоту. Бесплатно за счет торга!</p>
-                <!-- Новый блок с формой проверки авто (вместо кнопки "Узнать больше") -->
-                <div class="check-form">
-                    <h3>Бесплатная проверка автомобиля. Заполните форму.</h3>
-                    <div class="form-fields">
-                        <input type="text" placeholder="Ссылка на объявление">
-                        <input type="tel" placeholder="Ваш номер телефона">
-                    </div>
-                    <button class="submit-button">Проверить авто</button>
-                    <p class="note">Нажимая кнопку, вы даете согласие на обработку персональных данных</p>
-                </div>
-            </div>
-            <div class="header-image">
-                <!-- Пустой, так как фото теперь в фоне -->
-            </div>
-        </div>
-        
-        <!-- Лозунг внизу справа (вариант 1: простой и элегантный) -->
-        <div class="slogan">ENTA <span class="highlight">AUTO</span>: Надёжный партнёр в поиске вашего авто</div>
-    </header>
-    
-    <!-- Модальное окно -->
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2>Оставьте заявку</h2>
-            <p>Мы свяжемся и поможем подобрать идеальное авто</p>
-            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST"> <!-- Замени на свой Formspree URL -->
-                <input type="text" name="name" placeholder="Ваше имя" required>
-                <input type="tel" name="phone" placeholder="Введите телефон" required>
-                <button type="submit" class="submit-button">Оставить заявку</button>
-            </form>
-        </div>
-    </div>
-    
-    <!-- JavaScript для модального окна и динамического года -->
-    <script>
-        function openModal() { document.getElementById('myModal').style.display = 'block'; }
-        function closeModal() { document.getElementById('myModal').style.display = 'none'; }
-        window.onclick = function(event) { if (event.target == document.getElementById('myModal')) closeModal(); }
-        
-        // Динамический год в футере
-        document.querySelector('footer p').innerHTML = '&copy; ' + new Date().getFullYear() + ' entaauto.ru';
-    </script>
-    
-    <!-- Второй блок: Критерии проверки (как на фото) -->
-    <section class="criteria">
-        <h2>По каким критериям проводится проверка автомобиля</h2>
-        <div class="criteria-list">
-            <div class="criteria-item">
-                <img src="sus.png" alt="Подвеска автомобиля"> <!-- Добавь свою иконку -->
-                <p>Подвеска автомобиля: Визуальный осмотр и тест драйв, при необходимости поднимаем автомобиль в сервисе.</p>
-            </div>
-            <div class="criteria-item">
-                <img src="eng.png" alt="Двигатель"> <!-- Добавь свою иконку -->
-                <p>Двигатель</p>
-            </div>
-            <div class="criteria-item">
-                <img src="gear.png" alt="Коробка передач"> <!-- Добавь свою иконку -->
-                <p>Коробка передач</p>
-            </div>
-            <div class="criteria-item">
-                <img src="body.png" alt="Кузовные элементы"> <!-- Добавь свою иконку -->
-                <p>Кузовные элементы</p>
-            </div>
-            <div class="criteria-item">
-                <img src="safe.jpg" alt="Системы безопасности"> <!-- Добавь свою иконку -->
-                <p>Системы безопасности</p>
-            </div>
-            <div class="criteria-item">
-                <img src="legal.png" alt="Юридические проверки"> <!-- Добавь свою иконку -->
-                <p>Юридические проверки</p>
-            </div>
-            <div class="criteria-item">
-                <img src="deal.png" alt="Сделка"> <!-- Добавь свою иконку -->
-                <p>Сделка</p>
-            </div>
-            <div class="criteria-item">
-                <img src="price.png" alt="Цена и торг"> <!-- Добавь свою иконку -->
-                <p>Цена и торг</p>
-            </div>
-            <div class="criteria-item">
-                <img src="diag.png" alt="Компьютерная диагностика"> <!-- Добавь свою иконку -->
-                <p>Компьютерная диагностика</p>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Placeholder для остальных блоков (расширь здесь) -->
-    <main>
-        <section style="padding: 40px; text-align: center;">
-            <h1>Добро пожаловать в ENTA AUTO</h1>
-            <p>Здесь можно добавить описание услуг, отзывы клиентов или галерею авто.</p>
-        </section>
-    </main>
-    <footer style="text-align: center; padding: 20px; background: #333; color: white;"><p>&copy; entaauto.ru</p></footer>
+    <!-- Твой оригинальный контент остаётся тем же — вставь его здесь (хедер, модалка, критерии, main, footer) -->
+    <!-- Я не повторяю весь HTML, чтобы не удлинять, но полный код — твой + этот <style> -->
 </body>
 </html>
