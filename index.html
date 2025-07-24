@@ -20,10 +20,12 @@
         }
         .slogan .highlight { color: #ff0000 !important; } /* Красный для "AUTO" */
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .criteria { background-color: #f5f5dc; /* Лёгкий бежевый фон */ }
         .criteria-item { 
             background: #f8f8f8; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: transform 0.3s; border-radius: 10px; 
-            display: flex; align-items: center; /* Горизонтальное размещение: иконка слева, текст справа */
+            display: flex; align-items: flex-start; /* Выравнивание текста по верху для одной линии заголовков */
             padding: 20px; text-align: left; /* Текст слева от иконки */
+            min-height: 150px; /* Фиксированная минимальная высота для выравнивания рядов */
         }
         .criteria-item:hover { transform: scale(1.05); }
         .criteria-item img { width: 120px; height: auto; margin-right: 20px; margin-bottom: 0; /* Иконки побольше, отступ справа */ }
@@ -51,6 +53,8 @@
         .custom-button:hover { background-color: #e65c00 !important; }
         /* Для слова "гарантией" */
         .highlight { color: #ff6600 !important; }
+        /* Лёгкая полупрозрачная тень под номерами телефонов */
+        .phones { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Полупрозрачная тень */ }
     </style>
 </head>
 <body>
