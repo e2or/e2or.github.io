@@ -27,7 +27,9 @@
         }
         .criteria-item:hover { transform: scale(1.05); }
         .criteria-item img { width: 120px; height: auto; margin-right: 20px; margin-bottom: 0; /* Иконки побольше, отступ справа */ }
-        .criteria-item p { font-size: 1em; color: #666; flex: 1; /* Текст занимает оставшееся пространство */ }
+        .criteria-item .text-content { flex: 1; } /* Контейнер для текста */
+        .criteria-item .title { font-size: 1.1em; font-weight: bold; color: #ff6600; margin-bottom: 5px; /* Жирный оранжевый для основной надписи */ }
+        .criteria-item .description { font-size: 0.9em; color: #666; margin: 0; /* Обычный текст под title */ }
         .check-form { background: rgba(255, 255, 255, 0.9); border-radius: 10px; padding: 20px; /* Твои стили для формы */ }
         .check-form h3 { color: #333 !important; /* Тёмный цвет для читаемости */ font-size: 1.2em; margin-bottom: 15px; text-align: center; }
         .submit-button { 
@@ -137,39 +139,66 @@
             <div class="row g-4 justify-content-center">
                 <div class="col-md-4 col-lg-3 criteria-item p-3 rounded d-flex align-items-center">
                     <img src="s.png" alt="Подвеска автомобиля" class="img-fluid me-3">
-                    <p>Подвеска автомобиля:Визуальный осмотр и тест драйв, при необходимости поднимаем автомобиль в сервисе.</p>
+                    <div class="text-content">
+                        <p class="title">Подвеска автомобиля:</p>
+                        <p class="description">Визуальный осмотр и тест драйв, при необходимости поднимаем автомобиль в сервисе.</p>
+                    </div>
                 </div>
                 <div class="col-md-4 col-lg-3 criteria-item p-3 rounded d-flex align-items-center">
                     <img src="e.png" alt="Двигатель" class="img-fluid me-3">
-                    <p>Двигатель: Визуальный осмотр подкапотного пространства, оценка работы двигателя и навесного оборудования, состояние системы охлаждения.</p>
+                    <div class="text-content">
+                        <p class="title">Двигатель:</p>
+                        <p class="description">Визуальный осмотр подкапотного пространства, оценка работы двигателя и навесного оборудования, состояние системы охлаждения.</p>
+                    </div>
                 </div>
                 <div class="col-md-4 col-lg-3 criteria-item p-3 rounded d-flex align-items-center">
                     <img src="g.png" alt="Коробка передач" class="img-fluid me-3">
-                    <p>Коробка передач: Проверка работы в движении, наличие подтеков/запотеваний, углубленная диагностика.</p>
+                    <div class="text-content">
+                        <p class="title">Коробка передач:</p>
+                        <p class="description">Проверка работы в движении, наличие подтеков/запотеваний, углубленная диагностика.</p>
+                    </div>
                 </div>
                 <div class="col-md-4 col-lg-3 criteria-item p-3 rounded d-flex align-items-center">
                     <img src="b.png" alt="Кузовные элементы" class="img-fluid me-3">
-                    <p>Кузовные элементы: Осмотр кузова с толщиномером (крученые детали, выявляем ДТП, скрытые повреждения, заводские точки, шпатлеванные детали).</p>
+                    <div class="text-content">
+                        <p class="title">Кузовные элементы:</p>
+                        <p class="description">Осмотр кузова с толщиномером (крученые детали, выявляем ДТП, скрытые повреждения, заводские точки, шпатлеванные детали).</p>
+                    </div>
                 </div>
                 <div class="col-md-4 col-lg-3 criteria-item p-3 rounded d-flex align-items-center">
                     <img src="f.png" alt="Системы безопасности" class="img-fluid me-3">
-                    <p>Системы безопасности: Проверка подушек безопасности, ремней беопасности, диагностика систем ABS, ESP, BAS.</p>
+                    <div class="text-content">
+                        <p class="title">Системы безопасности:</p>
+                        <p class="description">Проверка подушек безопасности, ремней беопасности, диагностика систем ABS, ESP, BAS.</p>
+                    </div>
                 </div>
                 <div class="col-md-4 col-lg-3 criteria-item p-3 rounded d-flex align-items-center">
                     <img src="l.png" alt="Юридические проверки" class="img-fluid me-3">
-                    <p>Юридические проверки:  Проверка ПТС, СТС автомобиля, криминалистическая проверка, кредиты, штрафы, ограничения, юр проверка собственника авто.</p>
+                    <div class="text-content">
+                        <p class="title">Юридические проверки:</p>
+                        <p class="description">Проверка ПТС, СТС автомобиля, криминалистическая проверка, кредиты, штрафы, ограничения, юр проверка собственника авто.</p>
+                    </div>
                 </div>
                 <div class="col-md-4 col-lg-3 criteria-item p-3 rounded d-flex align-items-center">
                     <img src="d.png" alt="Сделка" class="img-fluid me-3">
-                    <p>Сделка: Спопровождение на всех этапах сделки вплоть до постановки автомобиля на учет.</p>
+                    <div class="text-content">
+                        <p class="title">Сделка:</p>
+                        <p class="description">Спопровождение на всех этапах сделки вплоть до постановки автомобиля на учет.</p>
+                    </div>
                 </div>
                 <div class="col-md-4 col-lg-3 criteria-item p-3 rounded d-flex align-items-center">
                     <img src="p.png" alt="Цена и торг" class="img-fluid me-3">
-                    <p>Цена и торг: Оценим рыночную стоимость автомобиля, торг с продацом (в 95% случаев торг окупает ваши траты на услугу автоподбора)</p>
+                    <div class="text-content">
+                        <p class="title">Цена и торг:</p>
+                        <p class="description">Оценим рыночную стоимость автомобиля, торг с продацом (в 95% случаев торг окупает ваши траты на услугу автоподбора)</p>
+                    </div>
                 </div>
                 <div class="col-md-4 col-lg-3 criteria-item p-3 rounded d-flex align-items-center">
                     <img src="i.png" alt="Компьютерная диагностика" class="img-fluid me-3">
-                    <p>Компьютерная диагностика: Наличие ошибок, проверка оригинальности пробега, проверка всех электронных систем автомобиля.</p>
+                    <div class="text-content">
+                        <p class="title">Компьютерная диагностика:</p>
+                        <p class="description">Наличие ошибок, проверка оригинальности пробега, проверка всех электронных систем автомобиля.</p>
+                    </div>
                 </div>
             </div>
         </div>
