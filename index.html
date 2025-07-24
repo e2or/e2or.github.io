@@ -25,10 +25,18 @@
         .criteria-item:hover { transform: scale(1.05); }
         .check-form { background: rgba(255, 255, 255, 0.9); border-radius: 10px; padding: 20px; /* Твои стили для формы */ }
         .check-form h3 { color: #333 !important; /* Тёмный цвет для читаемости */ font-size: 1.2em; margin-bottom: 15px; text-align: center; }
-        .submit-button { background-color: #ffcc00; color: #333; position: relative; border: none; padding: 10px; border-radius: 5px; cursor: pointer; font-size: 1em; width: 100%; }
-        .submit-button::after { content: ''; position: absolute; right: 10px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 8px solid white; }
-        .submit-button:hover { background-color: #e6b800; }
-        .note { font-size: 0.8em; color: #000; text-align: center; margin-top: 10px; }
+        .submit-button { 
+            background-color: #ff6600; /* Оранжевый цвет (изменено с жёлтого) */
+            color: #fff; /* Белый текст для контраста */
+            position: relative; border: none; padding: 10px; border-radius: 5px; cursor: pointer; 
+            font-size: 1em; width: 100%; font-weight: bold; /* Жирный шрифт для надписи */
+        }
+        .submit-button::after { /* Белая стрелка как на фото */
+            content: ''; position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+            width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 8px solid white;
+        }
+        .submit-button:hover { background-color: #e65c00; }
+        .note { font-size: 0.8em; color: #000; text-align: center; margin-top: 10px; text-shadow: none; /* Просто чёрная читаемая надпись, без теней */ }
         /* Стили для телефонов (переопределяем Bootstrap) */
         .phone { color: white !important; text-decoration: none !important; font-weight: bold; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); margin-left: 10px; }
         /* Стили для кнопки "Заказать подбор" (твои цвета, тени) */
@@ -139,7 +147,7 @@
                     <p>Кузовные элементы</p>
                 </div>
                 <div class="col-md-4 col-lg-3 criteria-item p-3 rounded">
-                    <img src="f.png" alt="Системы безопасности" class="img-fluid">
+                    <img src="f.jpg" alt="Системы безопасности" class="img-fluid">
                     <p>Системы безопасности</p>
                 </div>
                 <div class="col-md-4 col-lg-3 criteria-item p-3 rounded">
