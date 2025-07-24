@@ -20,9 +20,14 @@
         }
         .slogan .highlight { color: #ff0000 !important; } /* Красный для "AUTO" */
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        .criteria-item img { width: 80px; height: auto; margin-bottom: 10px; }
-        .criteria-item { background: #f8f8f8; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: transform 0.3s; border-radius: 10px; /* Добавил обводку/радиус как в твоём */ }
+        .criteria-item { 
+            background: #f8f8f8; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: transform 0.3s; border-radius: 10px; 
+            display: flex; align-items: center; /* Горизонтальное размещение: иконка слева, текст справа */
+            padding: 20px; text-align: left; /* Текст слева от иконки */
+        }
         .criteria-item:hover { transform: scale(1.05); }
+        .criteria-item img { width: 120px; height: auto; margin-right: 20px; margin-bottom: 0; /* Иконки побольше, отступ справа */ }
+        .criteria-item p { font-size: 1em; color: #666; flex: 1; /* Текст занимает оставшееся пространство */ }
         .check-form { background: rgba(255, 255, 255, 0.9); border-radius: 10px; padding: 20px; /* Твои стили для формы */ }
         .check-form h3 { color: #333 !important; /* Тёмный цвет для читаемости */ font-size: 1.2em; margin-bottom: 15px; text-align: center; }
         .submit-button { 
@@ -130,41 +135,41 @@
         <div class="container">
             <h2 class="mb-4">По каким критериям проводится проверка автомобиля</h2>
             <div class="row g-4 justify-content-center">
-                <div class="col-md-4 col-lg-3 criteria-item p-3 rounded">
-                    <img src="s.png" alt="Подвеска автомобиля" class="img-fluid">
-                    <p>Подвеска автомобиля: Визуальный осмотр и тест драйв, при необходимости поднимаем автомобиль в сервисе.</p>
+                <div class="col-md-4 col-lg-3 criteria-item p-3 rounded d-flex align-items-center">
+                    <img src="s.png" alt="Подвеска автомобиля" class="img-fluid me-3">
+                    <p>Ехал грека через реку</p>
                 </div>
-                <div class="col-md-4 col-lg-3 criteria-item p-3 rounded">
-                    <img src="e.png" alt="Двигатель" class="img-fluid">
-                    <p>Двигатель</p>
+                <div class="col-md-4 col-lg-3 criteria-item p-3 rounded d-flex align-items-center">
+                    <img src="e.png" alt="Двигатель" class="img-fluid me-3">
+                    <p>Ехал грека через реку</p>
                 </div>
-                <div class="col-md-4 col-lg-3 criteria-item p-3 rounded">
-                    <img src="g.png" alt="Коробка передач" class="img-fluid">
-                    <p>Коробка передач</p>
+                <div class="col-md-4 col-lg-3 criteria-item p-3 rounded d-flex align-items-center">
+                    <img src="g.png" alt="Коробка передач" class="img-fluid me-3">
+                    <p>Ехал грека через реку</p>
                 </div>
-                <div class="col-md-4 col-lg-3 criteria-item p-3 rounded">
-                    <img src="b.png" alt="Кузовные элементы" class="img-fluid">
-                    <p>Кузовные элементы</p>
+                <div class="col-md-4 col-lg-3 criteria-item p-3 rounded d-flex align-items-center">
+                    <img src="b.png" alt="Кузовные элементы" class="img-fluid me-3">
+                    <p>Ехал грека через реку</p>
                 </div>
-                <div class="col-md-4 col-lg-3 criteria-item p-3 rounded">
-                    <img src="f.png" alt="Системы безопасности" class="img-fluid">
-                    <p>Системы безопасности</p>
+                <div class="col-md-4 col-lg-3 criteria-item p-3 rounded d-flex align-items-center">
+                    <img src="f.png" alt="Системы безопасности" class="img-fluid me-3">
+                    <p>Ехал грека через реку</p>
                 </div>
-                <div class="col-md-4 col-lg-3 criteria-item p-3 rounded">
-                    <img src="l.png" alt="Юридические проверки" class="img-fluid">
-                    <p>Юридические проверки</p>
+                <div class="col-md-4 col-lg-3 criteria-item p-3 rounded d-flex align-items-center">
+                    <img src="l.png" alt="Юридические проверки" class="img-fluid me-3">
+                    <p>Ехал грека через реку</p>
                 </div>
-                <div class="col-md-4 col-lg-3 criteria-item p-3 rounded">
-                    <img src="d.png" alt="Сделка" class="img-fluid">
-                    <p>Сделка</p>
+                <div class="col-md-4 col-lg-3 criteria-item p-3 rounded d-flex align-items-center">
+                    <img src="d.png" alt="Сделка" class="img-fluid me-3">
+                    <p>Ехал грека через реку</p>
                 </div>
-                <div class="col-md-4 col-lg-3 criteria-item p-3 rounded">
-                    <img src="p.png" alt="Цена и торг" class="img-fluid">
-                    <p>Цена и торг</p>
+                <div class="col-md-4 col-lg-3 criteria-item p-3 rounded d-flex align-items-center">
+                    <img src="p.png" alt="Цена и торг" class="img-fluid me-3">
+                    <p>Ехал грека через реку</p>
                 </div>
-                <div class="col-md-4 col-lg-3 criteria-item p-3 rounded">
-                    <img src="i.png" alt="Компьютерная диагностика" class="img-fluid">
-                    <p>Компьютерная диагностика</p>
+                <div class="col-md-4 col-lg-3 criteria-item p-3 rounded d-flex align-items-center">
+                    <img src="i.png" alt="Компьютерная диагностика" class="img-fluid me-3">
+                    <p>Ехал грека через реку</p>
                 </div>
             </div>
         </div>
