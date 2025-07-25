@@ -20,7 +20,7 @@
         }
         .slogan .highlight { color: #ff0000 !important; } /* Красный для "AUTO" */
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        .criteria { background-color: #f5f5dc; /* Лёгкий бежевый фон */ }
+        .criteria { background-color: #f5f5dc !important; /* Лёгкий бежевый фон с !important для переопределения */ }
         .criteria-item { 
             background: #f8f8f8; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: transform 0.3s; border-radius: 10px; 
             display: flex; align-items: flex-start; /* Выравнивание текста по верху для одной линии заголовков */
@@ -32,7 +32,7 @@
         .criteria-item .text-content { flex: 1; } /* Контейнер для текста */
         .criteria-item .title { font-size: 1.1em; font-weight: bold; color: #ff6600; margin-bottom: 5px; /* Жирный оранжевый для основной надписи */ }
         .criteria-item .description { font-size: 0.9em; color: #666; margin: 0; /* Обычный текст под title */ }
-        .check-form { background: rgba(255, 255, 255, 0.9); border-radius: 10px; padding: 20px; max-width: 500px; /* Сделали поуже (с 600px до 500px) */ }
+        .check-form { background: rgba(255, 255, 255, 0.9); border-radius: 10px; padding: 20px; /* Твои стили для формы */ }
         .check-form h3 { color: #333 !important; /* Тёмный цвет для читаемости */ font-size: 1.2em; margin-bottom: 15px; text-align: center; }
         .submit-button { 
             background-color: #ff6600; /* Оранжевый цвет (изменено с жёлтого) */
@@ -55,8 +55,6 @@
         .highlight { color: #ff6600 !important; }
         /* Лёгкая полупрозрачная тень под номерами телефонов */
         .phones { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Полупрозрачная тень */ }
-        /* Специальный стиль для текста "Системы безопасности" (поднимаем выше) */
-        .safety-text .text-content { margin-top: -10px; /* Поднимаем текст чуть выше */ }
     </style>
 </head>
 <body>
@@ -139,7 +137,7 @@
     </div>
     
     <!-- Второй блок: Критерии проверки (как на фото) -->
-    <section class="criteria py-5 text-center bg-white">
+    <section class="criteria py-5 text-center">
         <div class="container">
             <h2 class="mb-4">По каким критериям проводится проверка автомобиля</h2>
             <div class="row g-4 justify-content-center">
@@ -171,7 +169,7 @@
                         <p class="description">Осмотр кузова с толщиномером (крученые детали, выявляем ДТП, скрытые повреждения, заводские точки, шпатлеванные детали).</p>
                     </div>
                 </div>
-                <div class="col-md-4 criteria-item p-3 rounded d-flex align-items-center safety-text"> <!-- Специальный класс для подъёма текста -->
+                <div class="col-md-4 criteria-item p-3 rounded d-flex align-items-center">
                     <img src="f.png" alt="Системы безопасности" class="img-fluid me-3">
                     <div class="text-content">
                         <p class="title">Системы безопасности:</p>
