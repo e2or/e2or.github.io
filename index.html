@@ -20,7 +20,7 @@
         }
         .slogan .highlight { color: #ff0000 !important; } /* Красный для "AUTO" */
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        .criteria { background-color: #D3D3D3 !important; /* Лёгкий бежевый фон с !important для переопределения */ }
+        .criteria { background-color: #D3D3D3 !important; /* Новый цвет фона второго блока */ }
         .criteria-item { 
             background: #f8f8f8; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: transform 0.3s; border-radius: 10px; 
             display: flex; align-items: flex-start; /* Выравнивание текста по верху для одной линии заголовков */
@@ -32,7 +32,7 @@
         .criteria-item .text-content { flex: 1; } /* Контейнер для текста */
         .criteria-item .title { font-size: 1.1em; font-weight: bold; color: #ff6600; margin-bottom: 5px; /* Жирный оранжевый для основной надписи */ }
         .criteria-item .description { font-size: 0.9em; color: #666; margin: 0; /* Обычный текст под title */ }
-        .check-form { background: rgba(255, 255, 255, 0.9); border-radius: 10px; padding: 20px; /* Твои стили для формы */ }
+        .check-form { background: rgba(255, 255, 255, 0.9); border-radius: 10px; padding: 20px; max-width: 400px; /* Сделали покороче (с 500px до 400px) */ margin: 20px auto 0; /* По центру и с отступом сверху для позиционирования "по середине" от текста */ }
         .check-form h3 { color: #333 !important; /* Тёмный цвет для читаемости */ font-size: 1.2em; margin-bottom: 15px; text-align: center; }
         .submit-button { 
             background-color: #ff6600; /* Оранжевый цвет (изменено с жёлтого) */
@@ -55,6 +55,8 @@
         .highlight { color: #ff6600 !important; }
         /* Лёгкая полупрозрачная тень под номерами телефонов */
         .phones { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Полупрозрачная тень */ }
+        /* Расстояние между элементами во втором блоке (увеличенный gap между столбцами) */
+        .criteria .row { gap: 30px; /* Небольшое расстояние между столбцами (межстрочное уже нормальное от Bootstrap g-4) */ }
     </style>
 </head>
 <body>
