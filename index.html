@@ -81,9 +81,12 @@
         .about-list li { font-size: 1em; color: #666; margin-bottom: 10px; }
         .about-list li::before { content: '•'; color: red; font-size: 1.2em; margin-right: 10px; }
         /* Новый раздел услуг */
-        .services-section { padding: 40px 0; background-color: #fff; }
-        .service-item { margin-bottom: 20px; }
-        .service-item h3 { color: #ff6600; }
+        .services-section { padding: 40px 0; background-color: #000; /* Чёрный фон */ }
+        .services-section h2 { color: #fff; /* Белый цвет для заголовка */ }
+        .service-item { margin-bottom: 20px; text-align: center; /* Центрирование для красоты */ }
+        .service-item h3 { color: #fff; font-weight: bold; text-transform: uppercase; /* Жирный и верхний регистр */ }
+        .service-item .price { color: #fff; font-weight: bold; text-transform: uppercase; margin: 10px 0; /* Жирный и верхний регистр для цены */ }
+        .service-item p { color: #fff; /* Белый цвет для текста */ }
     </style>
 </head>
 <body>
@@ -268,22 +271,30 @@
         </div>
     </section>
     
-    <!-- Новый раздел: Услуги (пример расширения, удали если не нужно) -->
+    <!-- Новый раздел: Услуги -->
     <section class="services-section text-center">
         <div class="container">
             <h2 class="mb-4">Наши услуги</h2>
             <div class="row">
-                <div class="col-md-4 service-item">
-                    <h3>Автоподбор под ключ</h3>
-                    <p>Полная проверка и подбор авто с гарантией.</p>
+                <div class="col-md-3 service-item">
+                    <h3>Разовый осмотр автомобиля</h3>
+                    <p class="price">ОТ 1000 РУБ.</p>
+                    <p>текст элемента</p>
                 </div>
-                <div class="col-md-4 service-item">
+                <div class="col-md-3 service-item">
+                    <h3>Подбор под ключ</h3>
+                    <p class="price">ОТ 1000 РУБ.</p>
+                    <p>текст элемента</p>
+                </div>
+                <div class="col-md-3 service-item">
                     <h3>Бесплатная проверка</h3>
-                    <p>Проверим авто по ссылке без обязательств.</p>
+                    <p class="price">ОТ 1000 РУБ.</p>
+                    <p>текст элемента</p>
                 </div>
-                <div class="col-md-4 service-item">
-                    <h3>Сопровождение сделки</h3>
-                    <p>От торга до регистрации в ГИБДД.</p>
+                <div class="col-md-3 service-item">
+                    <h3>Эксперт на день</h3>
+                    <p class="price">ОТ 1000 РУБ.</p>
+                    <p>текст элемента</p>
                 </div>
             </div>
         </div>
