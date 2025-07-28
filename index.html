@@ -83,10 +83,22 @@
         /* Новый раздел услуг */
         .services-section { padding: 40px 0; background-color: #000; /* Чёрный фон */ }
         .services-section h2 { color: #fff; /* Белый цвет для заголовка */ }
-        .service-item { margin-bottom: 20px; text-align: center; /* Центрирование для красоты */ }
+        .service-item { 
+            margin-bottom: 20px; text-align: center; /* Центрирование для красоты */
+            border: 1px solid #ff6600; /* Оранжевая линия вокруг каждого элемента */
+            border-radius: 10px; /* Закруглённые углы для прямоугольника */
+            padding: 20px; /* Внутренние отступы для контента */
+        }
         .service-item h3 { color: #fff; font-weight: bold; text-transform: uppercase; /* Жирный и верхний регистр */ }
         .service-item .price { color: #fff; font-weight: bold; text-transform: uppercase; margin: 10px 0; /* Жирный и верхний регистр для цены */ }
         .service-item p { color: #fff; /* Белый цвет для текста */ }
+        .service-item .order-button { 
+            background-color: #ff6600; /* Оранжевый цвет кнопки */
+            color: #fff; /* Белый текст */
+            border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; 
+            font-weight: bold; margin-top: 15px; /* Отступ сверху */
+        }
+        .service-item .order-button:hover { background-color: #e65c00; }
     </style>
 </head>
 <body>
@@ -280,21 +292,25 @@
                     <h3>Разовый осмотр автомобиля</h3>
                     <p class="price">ОТ 1000 РУБ.</p>
                     <p>текст элемента</p>
+                    <button class="order-button" data-bs-toggle="modal" data-bs-target="#myModal">Заказать</button>
                 </div>
                 <div class="col-md-3 service-item">
                     <h3>Подбор под ключ</h3>
                     <p class="price">ОТ 1000 РУБ.</p>
                     <p>текст элемента</p>
+                    <button class="order-button" data-bs-toggle="modal" data-bs-target="#myModal">Заказать</button>
                 </div>
                 <div class="col-md-3 service-item">
                     <h3>Бесплатная проверка</h3>
                     <p class="price">ОТ 1000 РУБ.</p>
                     <p>текст элемента</p>
+                    <button class="order-button" data-bs-toggle="modal" data-bs-target="#myModal">Заказать</button>
                 </div>
                 <div class="col-md-3 service-item">
                     <h3>Эксперт на день</h3>
                     <p class="price">ОТ 1000 РУБ.</p>
                     <p>текст элемента</p>
+                    <button class="order-button" data-bs-toggle="modal" data-bs-target="#myModal">Заказать</button>
                 </div>
             </div>
         </div>
