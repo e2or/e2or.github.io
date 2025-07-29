@@ -4,119 +4,208 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="ENTA AUTO - безопасный автоподбор. Помогаем найти идеальный автомобиль без рисков.">
-    <meta name="keywords" content="автоподбор, проверка авто, подбор автомобиля, ENTA AUTO"> <!-- Добавил для SEO -->
+    <meta name="keywords" content="автоподбор, проверка авто, подбор автомобиля, ENTA AUTO">
     <title>ENTA AUTO - Автоподбор</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="ENTA AUTO - Автоподбор с гарантией">
+    <meta property="og:description" content="Помогаем найти идеальный автомобиль без рисков. Проверим историю, технику и юридическую чистоту.">
+    <meta property="og:image" content="https://your-github-username.github.io/entaauto/og-image.jpg">
+    <meta property="og:url" content="https://your-github-username.github.io/entaauto">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ENTA AUTO - Автоподбор с гарантией">
+    <meta name="twitter:description" content="Безопасный автоподбор. Проверим авто за вас.">
+    <meta name="twitter:image" content="https://your-github-e2or.github.io/entaauto/og-image.jpg">
+
     <!-- Подключение Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <!-- Подключение шрифта для лозунга и заголовка (Playfair Display) -->
+    
+    <!-- Шрифты -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <!-- Подключение шрифта Noto Sans Black Italic для about-title -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@1,900&display=swap" rel="stylesheet">
-    <!-- Подключение AOS для анимаций -->
+    
+    <!-- AOS Анимации -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- Custom CSS (расширенный для твоих стилей — идёт после Bootstrap, чтобы переопределять) -->
+
+    <!-- Custom CSS -->
     <style>
         header { 
-            background: url('header.png') no-repeat center/cover; color: white; position: relative; min-height: 80vh; 
+            background: url('header.png') no-repeat center/cover; 
+            color: white; 
+            position: relative; 
+            min-height: 80vh; 
         }
         .slogan { 
-            font-family: 'Playfair Display', serif; font-style: italic; color: #fff; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); 
+            font-family: 'Playfair Display', serif; 
+            font-style: italic; 
+            color: #fff; 
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.7); 
             animation: fadeIn 2s; 
         }
-        .slogan .highlight { color: #ff0000 !important; } /* Красный для "AUTO" */
+        .slogan .highlight { color: #ff0000 !important; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        .criteria { background-color: #D3D3D3 !important; /* Новый цвет фона второго блока */ }
+
+        .criteria { background-color: #D3D3D3 !important; }
         .criteria-item { 
-            background: #f8f8f8; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: transform 0.3s; border-radius: 10px; 
-            display: flex; align-items: flex-start; /* Выравнивание текста по верху для одной линии заголовков */
-            padding: 20px; text-align: left; /* Текст слева от иконки */
-            min-height: 180px; /* Увеличенная фиксированная высота для выравнивания рядов и предотвращения сдвигов */
+            background: #f8f8f8; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+            transition: transform 0.3s; 
+            border-radius: 10px; 
+            display: flex; 
+            align-items: flex-start; 
+            padding: 20px; 
+            text-align: left; 
+            min-height: 180px; 
         }
         .criteria-item:hover { transform: scale(1.05); }
-        .criteria-item img { width: 120px; height: auto; margin-right: 20px; margin-bottom: 0; /* Иконки побольше, отступ справа */ }
-        .criteria-item .text-content { flex: 1; } /* Контейнер для текста */
-        .criteria-item .title { font-size: 1.1em; font-weight: bold; color: #ff6600; margin-bottom: 5px; /* Жирный оранжевый для основной надписи */ }
-        .criteria-item .description { font-size: 0.9em; color: #666; margin: 0; /* Обычный текст под title */ }
-        .check-form { background: rgba(255, 255, 255, 0.9); border-radius: 10px; padding: 15px; /* Уменьшили padding для сокращения высоты */ max-width: 350px; /* Ещё короче */ margin: 30px auto 0; /* По центру и с отступом сверху для позиционирования "по середине" от текста */ }
-        .check-form h3 { color: #333 !important; /* Тёмный цвет для читаемости */ font-size: 1.2em; margin-bottom: 15px; text-align: center; }
-        .submit-button { 
-            background-color: #ff6600; /* Оранжевый цвет (изменено с жёлтого) */
-            color: #fff; /* Белый текст для контраста */
-            position: relative; border: none; padding: 10px; border-radius: 5px; cursor: pointer; 
-            font-size: 1em; width: 100%; font-weight: bold; /* Жирный шрифт для надписи */
+        .criteria-item img { width: 120px; height: auto; margin-right: 20px; }
+        .criteria-item .text-content { flex: 1; }
+        .criteria-item .title { font-size: 1.1em; font-weight: bold; color: #ff6600; margin-bottom: 5px; }
+        .criteria-item .description { font-size: 0.9em; color: #666; margin: 0; }
+
+        .check-form { 
+            background: rgba(255, 255, 255, 0.9); 
+            border-radius: 10px; 
+            padding: 15px; 
+            max-width: 350px; 
+            margin: 30px auto 0; 
         }
-        .submit-button::after { /* Белая стрелка как на фото */
-            content: ''; position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
-            width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 8px solid white;
+        .check-form h3 { 
+            color: #333 !important; 
+            font-size: 1.2em; 
+            margin-bottom: 15px; 
+            text-align: center; 
+        }
+        .submit-button { 
+            background-color: #ff6600; 
+            color: #fff; 
+            position: relative; 
+            border: none; 
+            padding: 10px; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-size: 1em; 
+            width: 100%; 
+            font-weight: bold; 
+        }
+        .submit-button::after { 
+            content: ''; 
+            position: absolute; 
+            right: 10px; 
+            top: 50%; 
+            transform: translateY(-50%); 
+            width: 0; 
+            height: 0; 
+            border-top: 5px solid transparent; 
+            border-bottom: 5px solid transparent; 
+            border-left: 8px solid white; 
         }
         .submit-button:hover { background-color: #e65c00; }
-        .note { font-size: 0.8em; color: #000; text-align: center; margin-top: 10px; text-shadow: none; /* Просто чёрная читаемая надпись, без теней */ }
-        /* Стили для телефонов (переопределяем Bootstrap) */
+        .note { font-size: 0.8em; color: #000; text-align: center; margin-top: 10px; }
+
         .phone { color: white !important; text-decoration: none !important; font-weight: bold; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); margin-left: 10px; }
-        /* Полупрозрачный чёрный фон за номерами телефонов */
         .phones { 
-            background: rgba(0,0,0,0.5); /* Полупрозрачный чёрный фон */
-            padding: 5px; border-radius: 5px; 
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Полупрозрачная тень (оставил как было) */
+            background: rgba(0,0,0,0.5); 
+            padding: 5px; 
+            border-radius: 5px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
         }
-        /* Стили для кнопки "Заказать подбор" (твои цвета, тени) */
-        .custom-button { background-color: #ff6600 !important; color: white !important; padding: 8px 16px !important; border-radius: 5px !important; border: none !important; cursor: pointer; text-shadow: none !important; }
+
+        .custom-button { 
+            background-color: #ff6600 !important; 
+            color: white !important; 
+            padding: 8px 16px !important; 
+            border-radius: 5px !important; 
+            border: none !important; 
+            cursor: pointer; 
+            text-shadow: none !important; 
+        }
         .custom-button:hover { background-color: #e65c00 !important; }
-        /* Для слова "гарантией" */
+
         .highlight { color: #ff6600 !important; }
-        /* Расстояние между элементами во втором блоке (увеличенный gap между столбцами и строками) */
-        .criteria .row { gap: 40px; /* Увеличенное расстояние между столбцами */ margin-bottom: 40px; /* Отступ между рядами */ display: flex; justify-content: space-between; flex-wrap: nowrap; /* Строго 3 в ряд без переноса */ }
-        @media (max-width: 768px) { .criteria .row { flex-wrap: wrap; /* На мобильных允许 перенос */ } }
-        /* Новый третий блок: О компании */
-        .about-section { background-color: #f8f8f8; padding: 40px 0; } /* Лёгкий фон для секции */
-        .about-title { 
-            font-family: 'Noto Sans', sans-serif; /* Шрифт Noto Sans Black Italic */
-            font-weight: 900; font-style: italic; 
-            font-size: 2em; margin-bottom: 10px; 
+
+        .criteria .row { 
+            gap: 40px; 
+            margin-bottom: 40px; 
+            display: flex; 
+            justify-content: space-between; 
+            flex-wrap: nowrap; 
         }
-        .about-title .highlight { color: #ff0000 !important; } /* Красный для "Auto" */
+        @media (max-width: 768px) { 
+            .criteria .row { flex-wrap: wrap; } 
+        }
+
+        .about-section { background-color: #f8f8f8; padding: 40px 0; }
+        .about-title { 
+            font-family: 'Noto Sans', sans-serif; 
+            font-weight: 900; 
+            font-style: italic; 
+            font-size: 2em; 
+            margin-bottom: 10px; 
+        }
+        .about-title .highlight { color: #ff0000 !important; }
         .about-text { font-size: 1.1em; color: #666; }
         .about-image img { border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        @media (max-width: 768px) { .about-section { text-align: center; } .about-image { margin-bottom: 20px; } }
-        /* Стили для списка абзацев с красными маркерами */
+
+        @media (max-width: 768px) { 
+            .about-section { text-align: center; } 
+            .about-image { margin-bottom: 20px; } 
+        }
+
         .about-list { list-style: none; padding-left: 0; margin-top: 20px; }
         .about-list li { font-size: 1em; color: #666; margin-bottom: 10px; }
         .about-list li::before { content: '•'; color: red; font-size: 1.2em; margin-right: 10px; }
-        /* Новый раздел услуг */
-        .services-section { padding: 40px 0; background-color: #000; /* Чёрный фон */ }
-        .services-section h2 { color: #fff; /* Белый цвет для заголовка */ }
+
+        .services-section { padding: 40px 0; background-color: #000; }
+        .services-section h2 { color: #fff; }
         .service-item { 
-            margin-bottom: 20px; text-align: center; /* Центрирование для красоты */
-            border: 1px solid #ff6600; /* Оранжевая линия вокруг каждого элемента */
-            border-radius: 10px; /* Закруглённые углы для прямоугольника */
-            padding: 20px; /* Внутренние отступы для контента */
+            margin-bottom: 20px; 
+            text-align: center; 
+            border: 1px solid #ff6600; 
+            border-radius: 10px; 
+            padding: 20px; 
         }
-        .service-item h3 { color: #fff; font-weight: bold; text-transform: uppercase; /* Жирный и верхний регистр */ }
-        .service-item .price { color: #fff; font-weight: bold; text-transform: uppercase; margin: 10px 0; /* Жирный и верхний регистр для цены */ }
-        .service-item p { color: #fff; /* Белый цвет для текста */ }
+        .service-item h3 { color: #fff; font-weight: bold; text-transform: uppercase; }
+        .service-item .price { color: #fff; font-weight: bold; text-transform: uppercase; margin: 10px 0; }
+        .service-item p { color: #fff; }
         .service-item .order-button { 
-            background-color: #ff6600; /* Оранжевый цвет кнопки */
-            color: #fff; /* Белый текст */
-            border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; 
-            font-weight: bold; margin-top: 15px; /* Отступ сверху */
+            background-color: #ff6600; 
+            color: #fff; 
+            border: none; 
+            padding: 10px 20px; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            margin-top: 15px; 
         }
         .service-item .order-button:hover { background-color: #e65c00; }
     </style>
 </head>
 <body>
-    <!-- Хедер с картинкой как фоном -->
+    <!-- Хедер -->
     <header class="d-flex flex-column justify-content-between">
         <div class="container-fluid">
             <div class="row align-items-start">
-                <!-- Логотип слева -->
                 <div class="col-auto">
                     <img src="autoberry13.png" alt="ENTA AUTO Логотип" class="img-fluid" style="max-width: 300px;" loading="lazy">
                 </div>
-                <!-- Навигация/контакты справа -->
                 <div class="col-auto ms-auto">
                     <div class="nav d-flex flex-column align-items-end">
-                        <div class="phones d-flex">
+                        <div class="phones d-flex align-items-center">
                             <a href="tel:+79934618990" class="phone me-2">+7(993)461-89-90</a>
+                            <a href="https://wa.me/79934618990" class="me-2" target="_blank" aria-label="WhatsApp">
+                                <img src="whatsapp.svg" alt="WhatsApp" width="24">
+                            </a>
+                            <a href="https://t.me/entaauto" class="me-2" target="_blank" aria-label="Telegram">
+                                <img src="telegram.svg" alt="Telegram" width="24">
+                            </a>
                             <a href="tel:+79171039557" class="phone">+7(917)103-95-57</a>
                         </div>
                         <button class="custom-button mt-2" data-bs-toggle="modal" data-bs-target="#myModal">Заказать подбор</button>
@@ -124,17 +213,16 @@
                 </div>
             </div>
         </div>
-        
-        <!-- Основной контент хедера (поверх фона) -->
         <div class="container-fluid flex-grow-1 d-flex align-items-center">
             <div class="row w-100">
                 <div class="col-md-6 header-text">
                     <h1>Автоподбор под ключ с <span class="highlight">гарантией</span>!</h1>
                     <p>Мы поможем подобрать автомобиль без рисков. Проверим историю, техническое состояние и юридическую чистоту. Бесплатно за счет торга!</p>
-                    <!-- Новый блок с формой проверки авто -->
                     <div class="check-form p-3">
                         <h3>Бесплатная проверка автомобиля. Заполните форму.</h3>
-                        <form action="https://formspree.io/f/mexample" method="POST"> <!-- Замени 'mexample' на свой реальный ID от Formspree -->
+                        <form action="https://formspree.io/f/mleqyqyo" method="POST" autocomplete="off">
+                            <input type="hidden" name="_subject" value="Новая заявка с сайта ENTA AUTO">
+                            <input type="text" name="_gotcha" style="display:none">
                             <div class="input-group mb-2">
                                 <input type="text" class="form-control" name="link" placeholder="Ссылка на объявление" required>
                             </div>
@@ -146,19 +234,15 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-md-6 header-image">
-                    <!-- Пустой, так как фото теперь в фоне -->
-                </div>
+                <div class="col-md-6 header-image"></div>
             </div>
         </div>
-        
-        <!-- Лозунг внизу справа -->
         <div class="slogan position-absolute bottom-0 end-0 me-5 mb-3" style="max-width: 40%;">
             ENTA <span class="highlight">AUTO</span>: Надёжный партнёр в поиске вашего авто
         </div>
     </header>
-    
-    <!-- Модальное окно (на Bootstrap) -->
+
+    <!-- Модальное окно -->
     <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -168,25 +252,27 @@
                 </div>
                 <div class="modal-body">
                     <p>Мы свяжемся и поможем подобрать идеальное авто</p>
-                    <form action="https://formspree.io/f/mexample" method="POST"> <!-- Замени 'mexample' на свой реальный ID от Formspree -->
+                    <form action="https://formspree.io/f/mleqyqyo" method="POST" autocomplete="off">
+                        <input type="hidden" name="_subject" value="Заявка с сайта ENTA AUTO">
+                        <input type="text" name="_gotcha" style="display:none">
                         <div class="mb-3">
                             <input type="text" class="form-control" name="name" placeholder="Ваше имя" required>
                         </div>
                         <div class="mb-3">
                             <input type="tel" class="form-control" name="phone" placeholder="Введите телефон" required>
                         </div>
-                        <button type="submit" class="submit-button btn w-100">Оставить заявку</button> <!-- Убрал btn-success, чтобы стиль был единым -->
+                        <button type="submit" class="submit-button btn w-100">Оставить заявку</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    
-    <!-- Второй блок: Критерии проверки (как на фото) -->
+
+    <!-- Критерии проверки -->
     <section class="criteria py-5 text-center">
         <div class="container">
             <h2 class="mb-4">По каким критериям проводится проверка автомобиля</h2>
-            <!-- Ряд 1: 3 элемента -->
+            <!-- Ряды с элементами -->
             <div class="row g-4 justify-content-center">
                 <div class="col-md-4 criteria-item p-3 rounded d-flex align-items-center">
                     <img src="s.png" alt="Подвеска автомобиля" class="img-fluid me-3" loading="lazy">
@@ -199,138 +285,129 @@
                     <img src="e.png" alt="Двигатель" class="img-fluid me-3" loading="lazy">
                     <div class="text-content">
                         <p class="title">Двигатель:</p>
-                        <p class="description">Визуальный осмотр подкапотного пространства, оценка работы двигателя и навесного оборудования, состояние системы охлаждения.</p>
+                        <p class="description">Визуальный осмотр подкапотного пространства, оценка работы двигателя и навесного оборудования.</p>
                     </div>
                 </div>
                 <div class="col-md-4 criteria-item p-3 rounded d-flex align-items-center">
                     <img src="g.png" alt="Коробка передач" class="img-fluid me-3" loading="lazy">
                     <div class="text-content">
                         <p class="title">Коробка передач:</p>
-                        <p class="description">Проверка работы в движении, наличие подтеков/запотеваний, углубленная диагностика.</p>
+                        <p class="description">Проверка работы в движении, наличие подтеков, углубленная диагностика.</p>
                     </div>
                 </div>
             </div>
-            <!-- Ряд 2: 3 элемента -->
             <div class="row g-4 justify-content-center">
                 <div class="col-md-4 criteria-item p-3 rounded d-flex align-items-center">
                     <img src="b.png" alt="Кузовные элементы" class="img-fluid me-3" loading="lazy">
                     <div class="text-content">
                         <p class="title">Кузовные элементы:</p>
-                        <p class="description">Осмотр кузова с толщиномером (крученые детали, выявляем ДТП, скрытые повреждения, заводские точки, шпатлеванные детали).</p>
+                        <p class="description">Осмотр с толщиномером: выявляем ДТП, скрытые повреждения, шпатлёвку.</p>
                     </div>
                 </div>
                 <div class="col-md-4 criteria-item p-3 rounded d-flex align-items-center">
                     <img src="f.png" alt="Системы безопасности" class="img-fluid me-3" loading="lazy">
                     <div class="text-content">
                         <p class="title">Системы безопасности:</p>
-                        <p class="description">Проверка подушек безопасности, ремней безопасности, диагностика систем ABS, ESP, BAS.</p> <!-- Исправил опечатку -->
+                        <p class="description">Проверка подушек, ремней, диагностика ABS, ESP, BAS.</p>
                     </div>
                 </div>
                 <div class="col-md-4 criteria-item p-3 rounded d-flex align-items-center">
                     <img src="l.png" alt="Юридические проверки" class="img-fluid me-3" loading="lazy">
                     <div class="text-content">
                         <p class="title">Юридические проверки:</p>
-                        <p class="description">Проверка ПТС, СТС автомобиля, криминалистическая проверка, кредиты, штрафы, ограничения, юр проверка собственника авто.</p>
+                        <p class="description">Проверка ПТС, кредита, штрафов, ограничений и собственника.</p>
                     </div>
                 </div>
             </div>
-            <!-- Ряд 3: 3 элемента -->
             <div class="row g-4 justify-content-center">
                 <div class="col-md-4 criteria-item p-3 rounded d-flex align-items-center">
                     <img src="d.png" alt="Сделка" class="img-fluid me-3" loading="lazy">
                     <div class="text-content">
                         <p class="title">Сделка:</p>
-                        <p class="description">Сопровождение на всех этапах сделки вплоть до постановки автомобиля на учет.</p> <!-- Исправил опечатку -->
+                        <p class="description">Сопровождение на всех этапах до постановки на учёт.</p>
                     </div>
                 </div>
                 <div class="col-md-4 criteria-item p-3 rounded d-flex align-items-center">
                     <img src="p.png" alt="Цена и торг" class="img-fluid me-3" loading="lazy">
                     <div class="text-content">
                         <p class="title">Цена и торг:</p>
-                        <p class="description">Оценим рыночную стоимость автомобиля, торг с продавцом (в 95% случаев торг окупает ваши траты на услугу автоподбора)</p> <!-- Исправил опечатку -->
+                        <p class="description">Оценка рыночной стоимости и ведение торга за вас.</p>
                     </div>
                 </div>
                 <div class="col-md-4 criteria-item p-3 rounded d-flex align-items-center">
                     <img src="i.png" alt="Компьютерная диагностика" class="img-fluid me-3" loading="lazy">
                     <div class="text-content">
                         <p class="title">Компьютерная диагностика:</p>
-                        <p class="description">Наличие ошибок, проверка оригинальности пробега, проверка всех электронных систем автомобиля.</p>
+                        <p class="description">Проверка ошибок, пробега и всех электронных систем.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- Третий блок: О компании с анимацией -->
+
+    <!-- О компании -->
     <section class="about-section py-5" data-aos="fade-up">
         <div class="container">
             <div class="row align-items-center">
-                <!-- Левая часть: Фото работников -->
                 <div class="col-md-6 about-image" data-aos="fade-right">
                     <img src="we.png" alt="Наша команда ENTA AUTO" class="img-fluid" loading="lazy">
                 </div>
-                <!-- Правая часть: Описание компании -->
                 <div class="col-md-6" data-aos="fade-left">
                     <h2 class="about-title">ENTA <span class="highlight">AUTO</span></h2>
-                    <p class="about-text">Наша команда является специалистами в сфере подбора и диагностики автомобилей.</p>
-                    <!-- 4 абзаца с красными маркерами -->
+                    <p class="about-text">Наша команда — профессионалы в подборе и диагностике автомобилей.</p>
                     <ul class="about-list" data-aos="fade-up" data-aos-delay="200">
-                        <li><strong>Опыт</strong> работы более 10ти лет в сфере автобизнеса</li>
-                        <li><strong>От 1 дня до 2-х недель</strong>. 85% подборов под ключ мы завершаем менее чем за 2 недели.</li>
-                        <li><strong>Отчеты по каждому авто</strong>. Предоставляем фото, видео и письменный отчет о состоянии автомобиля после диагностики.</li>
-                        <li><strong>Торг</strong>. В большинстве случаев после осмотра обоснованно снижаем цену на автомобиль. Мы сами ведем торг с продавцом, за счет чего наши услуги могут обойтись вам бесплатно.</li>
+                        <li><strong>Опыт</strong> более 10 лет в автобизнесе</li>
+                        <li><strong>Быстро</strong>: 85% подборов завершаем за 2 недели</li>
+                        <li><strong>Отчеты</strong>: фото, видео и письменный отчёт по каждому авто</li>
+                        <li><strong>Торг</strong>: снижаем цену за счёт торга — услуги могут быть бесплатны</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- Четвёртый блок: Услуги с добавленным расстоянием -->
+
+    <!-- Услуги -->
     <section class="services-section text-center">
         <div class="container">
             <h2 class="mb-4">Наши услуги</h2>
             <div class="row g-3">
                 <div class="col-md-3 service-item">
                     <h3>Разовый осмотр автомобиля</h3>
-                    <p class="price">ОТ 1000 РУБ.</p>
-                    <p>текст элемента</p>
+                    <p class="price">ОТ 1500 РУБ.</p>
+                    <p>Проверим подвеску, двигатель, кузов и электронику на месте.</p>
                     <button class="order-button" data-bs-toggle="modal" data-bs-target="#myModal">Заказать</button>
                 </div>
                 <div class="col-md-3 service-item">
                     <h3>Подбор под ключ</h3>
-                    <p class="price">ОТ 1000 РУБ.</p>
-                    <p>текст элемента</p>
+                    <p class="price">ОТ 15 000 РУБ.</p>
+                    <p>Полный подбор авто: от поиска до постановки на учёт.</p>
                     <button class="order-button" data-bs-toggle="modal" data-bs-target="#myModal">Заказать</button>
                 </div>
                 <div class="col-md-3 service-item">
                     <h3>Бесплатная проверка</h3>
-                    <p class="price">ОТ 1000 РУБ.</p>
-                    <p>текст элемента</p>
+                    <p class="price">БЕСПЛАТНО</p>
+                    <p>Анализ фото и видео из объявления — без выезда.</p>
                     <button class="order-button" data-bs-toggle="modal" data-bs-target="#myModal">Заказать</button>
                 </div>
                 <div class="col-md-3 service-item">
                     <h3>Эксперт на день</h3>
-                    <p class="price">ОТ 1000 РУБ.</p>
-                    <p>текст элемента</p>
+                    <p class="price">ОТ 3000 РУБ./день</p>
+                    <p>Помощь в выборе или сопровождение сделки в течение дня.</p>
                     <button class="order-button" data-bs-toggle="modal" data-bs-target="#myModal">Заказать</button>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <footer class="text-center py-3 bg-dark text-white">
         <p>&copy; <script>document.write(new Date().getFullYear())</script> entaauto.ru</p>
     </footer>
 
-    <!-- Подключение Bootstrap JS (для модалки и других компонентов) -->
+    <!-- JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <!-- Подключение AOS JS и инициализация -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({
-            duration: 1000,
-            once: true
-        });
+        AOS.init({ duration: 1000, once: true });
     </script>
 </body>
 </html>
