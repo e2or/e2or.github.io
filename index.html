@@ -22,9 +22,9 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="ENTA AUTO - Автоподбор с гарантией">
     <meta name="twitter:description" content="Безопасный автоподбор. Проверим авто за вас.">
-    <meta name="twitter:image" content="https://your-github-e2or.github.io/entaauto/og-image.jpg">
+    <meta name="twitter:image" content="https://your-github-username.github.io/entaauto/og-image.jpg">
 
-    <!-- Подключение Bootstrap CSS -->
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     
     <!-- Шрифты -->
@@ -165,6 +165,7 @@
 
         .services-section { padding: 40px 0; background-color: #000; }
         .services-section h2 { color: #fff; }
+
         .service-item { 
             margin-bottom: 20px; 
             text-align: center; 
@@ -175,7 +176,24 @@
         .service-item h3 { color: #fff; font-weight: bold; text-transform: uppercase; }
         .service-item .price { color: #fff; font-weight: bold; text-transform: uppercase; margin: 10px 0; }
         .service-item p { color: #fff; }
-        .service-item .order-button { 
+
+        .dot-point {
+            margin: 8px 0;
+            position: relative;
+            padding-left: 20px;
+            font-size: 0.9em;
+            color: #fff;
+        }
+        .dot-point::before {
+            content: '•';
+            color: #ff6600;
+            font-size: 1.2em;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .order-button { 
             background-color: #ff6600; 
             color: #fff; 
             border: none; 
@@ -185,7 +203,7 @@
             font-weight: bold; 
             margin-top: 15px; 
         }
-        .service-item .order-button:hover { background-color: #e65c00; }
+        .order-button:hover { background-color: #e65c00; }
     </style>
 </head>
 <body>
@@ -272,7 +290,6 @@
     <section class="criteria py-5 text-center">
         <div class="container">
             <h2 class="mb-4">По каким критериям проводится проверка автомобиля</h2>
-            <!-- Ряды с элементами -->
             <div class="row g-4 justify-content-center">
                 <div class="col-md-4 criteria-item p-3 rounded d-flex align-items-center">
                     <img src="s.png" alt="Подвеска автомобиля" class="img-fluid me-3" loading="lazy">
@@ -366,38 +383,65 @@
         </div>
     </section>
 
-<!-- Услуги -->
-<section class="services-section text-center">
-    <div class="container">
-        <h2 class="mb-4">Наши услуги</h2>
-        <div class="row" style="gap: 20px; justify-content: center;">
-            <div class="col-md-3 service-item" style="flex: 1 1 calc(25% - 20px); max-width: 270px;">
-                <h3>Разовый осмотр автомобиля</h3>
-                <p class="price">ОТ 1500 РУБ.</p>
-                <p>Проверим подвеску, двигатель, кузов и электронику на месте.</p>
-                <button class="order-button" data-bs-toggle="modal" data-bs-target="#myModal">Заказать</button>
-            </div>
-            <div class="col-md-3 service-item" style="flex: 1 1 calc(25% - 20px); max-width: 270px;">
-                <h3>Подбор под ключ</h3>
-                <p class="price">ОТ 15 000 РУБ.</p>
-                <p>Полный подбор авто: от поиска до постановки на учёт.</p>
-                <button class="order-button" data-bs-toggle="modal" data-bs-target="#myModal">Заказать</button>
-            </div>
-            <div class="col-md-3 service-item" style="flex: 1 1 calc(25% - 20px); max-width: 270px;">
-                <h3>Бесплатная проверка</h3>
-                <p class="price">БЕСПЛАТНО</p>
-                <p>Анализ фото и видео из объявления — без выезда.</p>
-                <button class="order-button" data-bs-toggle="modal" data-bs-target="#myModal">Заказать</button>
-            </div>
-            <div class="col-md-3 service-item" style="flex: 1 1 calc(25% - 20px); max-width: 270px;">
-                <h3>Эксперт на день</h3>
-                <p class="price">ОТ 3000 РУБ./день</p>
-                <p>Помощь в выборе или сопровождение сделки в течение дня.</p>
-                <button class="order-button" data-bs-toggle="modal" data-bs-target="#myModal">Заказать</button>
+    <!-- Услуги -->
+    <section class="services-section text-center">
+        <div class="container">
+            <h2 class="mb-4">Наши услуги</h2>
+            <div class="row" style="gap: 20px; justify-content: center;">
+                <!-- Услуга 1 -->
+                <div class="col-md-3 service-item" style="flex: 1 1 calc(25% - 20px); max-width: 270px;">
+                    <h3>Разовый осмотр автомобиля</h3>
+                    <p class="price">ОТ 1500 РУБ.</p>
+                    <div class="service-desc" style="text-align: left; margin: 0 auto; max-width: 240px;">
+                        <p class="dot-point">Консультация по выбранным объявлениям.</p>
+                        <p class="dot-point">Выезд на осмотр в день обращения.</p>
+                        <p class="dot-point">Проверим автомобиль по 100 параметрам.</p>
+                        <p class="dot-point">Оценим реальную стоимость автомобиля.</p>
+                        <p class="dot-point">Аргументированно сторгуем цену с продавцом.</p>
+                        <p class="dot-point">Пришлем вам полный фото, видео и письменный отчет.</p>
+                    </div>
+                    <button class="order-button mt-2" data-bs-toggle="modal" data-bs-target="#myModal">Заказать</button>
+                </div>
+                <!-- Услуга 2 -->
+                <div class="col-md-3 service-item" style="flex: 1 1 calc(25% - 20px); max-width: 270px;">
+                    <h3>Подбор под ключ</h3>
+                    <p class="price">ОТ 15 000 РУБ.</p>
+                    <div class="service-desc" style="text-align: left; margin: 0 auto; max-width: 240px;">
+                        <p class="dot-point">Учтем все ваши параметры искомого авто.</p>
+                        <p class="dot-point">Работаем до результата.</p>
+                        <p class="dot-point">Торг с продавцом окупит траты на наши услуги.</p>
+                        <p class="dot-point">Неограниченное количество проверок.</p>
+                        <p class="dot-point">Полное сопровождение поиска и покупки авто, вплоть до постановки на учет.</p>
+                    </div>
+                    <button class="order-button mt-2" data-bs-toggle="modal" data-bs-target="#myModal">Заказать</button>
+                </div>
+                <!-- Услуга 3 -->
+                <div class="col-md-3 service-item" style="flex: 1 1 calc(25% - 20px); max-width: 270px;">
+                    <h3>Бесплатная проверка</h3>
+                    <p class="price">БЕСПЛАТНО</p>
+                    <div class="service-desc" style="text-align: left; margin: 0 auto; max-width: 240px;">
+                        <p class="dot-point">Консультация по выбранному объявлению.</p>
+                        <p class="dot-point">Узнаем всю информацию об автомобиле.</p>
+                        <p class="dot-point">Созвонимся с продавцом.</p>
+                    </div>
+                    <button class="order-button mt-2" data-bs-toggle="modal" data-bs-target="#myModal">Заказать</button>
+                </div>
+                <!-- Услуга 4 -->
+                <div class="col-md-3 service-item" style="flex: 1 1 calc(25% - 20px); max-width: 270px;">
+                    <h3>Эксперт на день</h3>
+                    <p class="price">ОТ 3000 РУБ./день</p>
+                    <div class="service-desc" style="text-align: left; margin: 0 auto; max-width: 240px;">
+                        <p class="dot-point">Консультация по выбранным объявлениям.</p>
+                        <p class="dot-point">Неограниченное число осмотров в течение дня.</p>
+                        <p class="dot-point">Поделимся советами по поиску автомобиля.</p>
+                        <p class="dot-point">Перемещение на автомобиле эксперта.</p>
+                        <p class="dot-point">Помощь в заключении сделки.</p>
+                    </div>
+                    <button class="order-button mt-2" data-bs-toggle="modal" data-bs-target="#myModal">Заказать</button>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <footer class="text-center py-3 bg-dark text-white">
         <p>&copy; <script>document.write(new Date().getFullYear())</script> entaauto.ru</p>
